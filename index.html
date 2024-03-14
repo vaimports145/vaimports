@@ -9,7 +9,7 @@
 <meta property="og:image:height" content="300">
 <meta property="og:url" content="https://vaimports145.github.io/vaimports/">
 <style>
-body {padding-top: 102px; background-color: #ebebeb;  margin: 0; display: flex; flex-direction: column; min-height: 100vh;}
+body {padding-top: 115px; background-color: #E5D3C0;  margin: 0; display: flex; flex-direction: column; min-height: 100vh;}
 
 .fundo {background-color: #191919; position: fixed; width: 100%; top:0; text-align: center; z-index: 2;}
 
@@ -17,7 +17,7 @@ body {padding-top: 102px; background-color: #ebebeb;  margin: 0; display: flex; 
 
 .cxdebusca {width: 100%; border-radius: 20px; height: 50px; font-weight: bold; background-color: white; margin-top: 15px}
 
-.inputmenu {float: left; width: 92%; padding: 15px; border-radius: 20px; height: 50px; font-weight: bold; border: none; background-color:transparent; color: #000;}
+.inputmenu {float: left; width: 80%; padding: 15px; border-radius: 20px; height: 50px; font-weight: bold; border: none; background-color:transparent; color: #000;}
 
 .inputmenu:focus {box-shadow: 0 0 0 0}
 
@@ -39,7 +39,7 @@ select:hover {color: grey;}
 
 .selected {color: grey; }
   
-option {font-size: 15px; font-weight: bold; color: black}
+option {font-size: 20px; color: black}
 
 .menuicon {display: none;}
 
@@ -55,6 +55,26 @@ option {font-size: 15px; font-weight: bold; color: black}
 
 .hidden {display: none;}
 
+/*______________________________________________________ PRODUTOS ______________________________________________________________________*/
+.ofertas {width: 80%; margin-left: 10%; margin-bottom: 20px; margin-top: 50px}
+
+.t1 {float: left; border-bottom: 5px solid #191919;}
+
+.t2 {float: right}
+
+#produtos {display: flex; flex-wrap: wrap; margin-left: 10%; margin-right: 10%;}
+
+#produtos a {text-decoration:none; color: black;}
+
+.produto:hover {background-color: #dcdcdc;}
+
+.produto {flex: 0 0 calc(20% - 20px); margin: 10px; background-color: #ffffff; padding: 5px; box-shadow: 1px 2px 10px black; border-radius: 10px; width: 100%;}
+
+.imgproduto {width: 100%;}
+
+.nomeproduto {margin-bottom: 0px;}
+
+.precoproduto {margin-top: 10px; color: #191919;}
 </style>
 </head>
 <body>
@@ -81,7 +101,7 @@ option {font-size: 15px; font-weight: bold; color: black}
     <td><a href="#carrinhoContainer"><img class="carrinho" src="https://i.postimg.cc/zBNCgKv6/Carrinho-VA.png" alt="carrinho"></a></td>     
     <td><h1 class="quanticar">0</h1></td>
 
-<!___________________________________________________________________________________________>	  
+<!--_________________________________________________________________________________________-->	  
     
     <td><div id="mySidenav" class="sidenav" id="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -105,11 +125,40 @@ option {font-size: 15px; font-weight: bold; color: black}
   </thead>
 </table>
 </header>
+
+<!--___________________________________________________________________________________________-->
+
+<main>
+<div id="slides">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="8000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="https://i.postimg.cc/fR6tPZqf/banner.png" alt="First slide">
+    </div>
+  </div>
+</div>
+</div>
+
+<!--____________________________________CATALÓGO_______________________________________________________-->
+<table class="ofertas">
+<td><h4 class="t1">Ofertas mais vendidas</h4></td> 
+<td><h5 class="t2">Ver todas</h5></td>
+</table>
+
+<div id="produtos">
+
+<div class="produto"><a href="htmlproduto27.html"><img class="imgproduto" src="https://i.postimg.cc/XY2mT4MS/tvbox1.png"><p class="nomeproduto" style="text-align: justify">TV Box (Converta Sua TV...</p><h4 class="precoproduto">R$200,00</h4></a></div>
     
-    <main>
-        <h2>Bem-vindo ao meu site!</h2>
-        <p>Este é um exemplo de um documento HTML padrão.</p>
-    </main>
+    	<div class="produto"><a href="htmlproduto28.html"><img class="imgproduto" src="https://i.postimg.cc/8s8fkj7F/cortador1.png"><p class="nomeproduto" style="text-align: justify">Máquina De Cortar Cabel...</p><h4 class="precoproduto">R$70,00</h4></a></div>
+    
+    	<div class="produto"><a href="htmlproduto29.html"><img class="imgproduto" src="https://i.postimg.cc/1RgrcFrZ/fonefxs8.png"><p class="nomeproduto" style="text-align: justify">Fone De Ouvido A Fio FX...</p><h4 class="precoproduto">R$20,00</h4></a></div>
+    
+    	<div class="produto"><a href="htmlproduto30.html"><img class="imgproduto" src="https://i.postimg.cc/Qd6Fy4jY/fonele35.png"><p class="nomeproduto" style="text-align: justify">Fone De Ouvido A Fio LE...</p><h4 class="precoproduto">R$20,00</h4></a></div>
+    
+   		<div class="produto"><a href="htmlproduto31.html"><img class="imgproduto" src="https://i.postimg.cc/xCLx5bL5/fonexej005.png"><p class="nomeproduto" style="text-align: justify">Fone De Ouvido A Fio XE...</p><h4 class="precoproduto">R$25,00</h4></a></div>
+
+</div>
+</main>
 
     <footer>
         <p>&copy; 2024 Meu Site. Todos os direitos reservados.</p>
