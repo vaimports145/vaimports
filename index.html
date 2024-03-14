@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>JGLoot</title> <link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/SQ9jc494/favicon-JG.png"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<meta property="og:title" content="JGLoot">
+<meta property="og:description" content="O melhor lugar para você lootear.">
+<meta property="og:image" content="https://i.postimg.cc/BbfF2nQ8/logojgloot.png">
+<meta property="og:image:width" content="300">
+<meta property="og:image:height" content="300">
+<meta property="og:url" content="https://jgloot.github.io/jgloot/">
+<style>
+body {padding-top: 102px; background-color: #ebebeb;  margin: 0; display: flex; flex-direction: column; min-height: 100vh;}
+
+.fundo {background-color: #191919; position: fixed; width: 100%; top:0; text-align: center; z-index: 2;}
+
+.logo {max-width: 150px;}
+
+.cxdebusca {width: 100%; border-radius: 20px; height: 50px; font-weight: bold; background-color: white; margin-top: 15px}
+
+.inputmenu {float: left; width: 92%; padding: 15px; border-radius: 20px; height: 50px; font-weight: bold; border: none; background-color:transparent; color: #000;}
+
+.inputmenu:focus {box-shadow: 0 0 0 0}
+
+.lupa {float: right; width: 30px; margin: 10px;}
+
+.op {font-size: 15px; text-decoration:none; color: #ffffff; font-weight: bold;}
+
+.op:hover {color: grey;}
+
+.carrinho {width: 50px; margin-top:65px; text-align: left}
+
+.quanticar {position: absolute; margin-top: 22px; margin-left: -4%; font-size: 15px; font-weight: bold;}
+
+select {background-color: transparent; border: none; color: #ffffff; font-size: 15px; font-weight: bold;}
+
+select:hover {color: grey;}
+
+.category {margin-left: 15px; color: white;}
+
+.selected {color: grey; }
+  
+option {font-size: 15px; font-weight: bold; color: black}
+
+.menuicon {display: none;}
+
+.sidenav { height: 100%; width: 0; position: fixed; z-index: 1; top: 0; right: 0; background-color: #b81414; overflow-x: hidden; padding-top: 40px; transition: 0.5s; border-left: 1px solid white; display: none; text-align: left;}
+
+.sidenav a {text-decoration: none; font-size: 15px; color: white; display: block; transition: 0.2s;}
+
+.sidenav a:hover {color: grey;}
+
+.sidenav .closebtn {position: absolute; top: 0; right: 10px; font-size: 36px;}
+
+.propaganda {max-width: 200px; margin-right: -20px; margin-bottom: -1px;}
+
+.hidden {display: none;}
+
+</style>
+</head>
+<body>
+<header>
+<table class="fundo">
+  <thead>
+    <td><img class="logo" src="https://i.postimg.cc/qvDGhNHx/Logo-5000-x-3000-px.png" alt="logo"></td>
+    <td><div class="cxdebusca">
+    <input class="form-control inputmenu" type="text" id="campopesquisa" placeholder="Buscar produtos..." type="text">
+    <img class="lupa" src="https://i.postimg.cc/QxXJxRyD/Lupa.png" alt="lupa">
+    </div>
+    <nav class="navbar opcoes">
+      <a class="op" href="https://api.whatsapp.com/send?phone=5593991755419">Contato</a> 
+      <a class="op" href="https://www.instagram.com/va_imports__/">Intagram</a>
+      <select class="w-25" name="select" id="category" onchange="filterProducts()">
+        <option hidden value= 0 >Categorias</option>
+        <option value="tudo">Tudo</option>
+        <option value="sons">Sons</option>
+        <option value="eletronicos">Eletrônicos</option>
+        <option value="fones">Fones</option>
+        <option value="smartphones">Smartphones</option>
+      
+      </select></nav></td>           
+    <td><a href="#carrinhoContainer"><img class="carrinho" src="https://i.postimg.cc/zBNCgKv6/Carrinho-VA.png" alt="carrinho"></a></td>     
+    <td><h1 class="quanticar">0</h1></td>
+
+<!___________________________________________________________________________________________>	  
+    
+    <td><div id="mySidenav" class="sidenav" id="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="category" onclick="filterproducts('all')"><a href="#">Página Inicial</a></div>
+      <hr><div class="category"><a href="https://wa.me/5593992244987">Contato</a></div>
+      <hr><div class="category"><a href="https://www.instagram.com/_jgloot_/">Intagram</a></div>
+      <hr><div class="category"><h5>Categorias:</h5></div>
+      <hr><div class="category" onclick="filterproducts('acessorios')" id="acessorios">Acessórios</div>
+      <hr><div class="category" onclick="filterproducts('eletronicos')" id="eletronicos">Eletrônicos</div>
+      <hr><div class="category" onclick="filterproducts('beleza')" id="beleza">Beleza</div>
+      <hr><div class="category" onclick="filterproducts('esportes')" id="esportes">Esportes/Calçados</div>
+      <hr><div class="category" onclick="filterproducts('papelaria')" id="papelaria">Papelaria</div>
+      <hr><div class="category" onclick="filterproducts('veiculos')" id="veiculos">Veículos</div>
+      <hr><div class="category" onclick="filterproducts('moda')" id="moda">Moda</div>
+      <hr><div class="category" onclick="filterproducts('sexshop')" id="sexshop">Sex Shop</div>
+      <hr>
+      </div>
+      <span onclick="openNav()"><img class="menuicon" src="https://i.postimg.cc/D0fXxYLF/menu.png" alt="menu"></span></td>
+      <td><h1 style="color: white">SELFIE <br> CELULARES</h1></td>
+    <!--<td><a href="https://api.whatsapp.com/send?phone=5593991991685"><img class="propaganda" src="https://i.postimg.cc/T36mL6xH/propagandatopo.png" alt="propaganda"></a></td>-->    
+  </thead>
+</table>
+</header>
+    
+    <main>
+        <h2>Bem-vindo ao meu site!</h2>
+        <p>Este é um exemplo de um documento HTML padrão.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Meu Site. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
