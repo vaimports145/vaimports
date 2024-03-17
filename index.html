@@ -64,38 +64,206 @@ option {font-size: 20px; color: black}
 
 .t2 {float: right}
 
-#produtos {display: flex; flex-wrap: wrap; margin-left: 5%; margin-right: 5%;}
+#produtos {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-bottom: 20px;
+  }
 
-#produtos a {text-decoration:none; color: black;}
+  #produtos a {
+    text-decoration: none;
+    color: black;
+  }
 
-.produto:hover {background-color: #dcdcdc;}
+  .produto:hover {
+    background-color: #dcdcdc;
+  }
 
-.produto {flex: 0 0 calc(20% - 20px); margin: 10px; background-color: #ffffff; padding: 5px; box-shadow: 1px 2px 10px black; border-radius: 10px; width: 100%;}
+  .produto {
+    flex: 0 0 calc(20% - 20px);
+    margin: 10px;
+    background-color: #ffffff;
+    padding: 5px;
+    box-shadow: 1px 2px 10px black;
+    border-radius: 10px;
+    width: 100%;
+  }
 
-.imgproduto {width: 100%;}
+  .imgproduto {
+    width: 100%;
+  }
 
-.nomeproduto {margin-bottom: 0px;}
+  .nomeproduto {
+    margin-bottom: 0px;
+  }
 
-.precoproduto {margin-top: 10px; color: #191919;}
-
+  .precoproduto {
+    margin-top: 10px;
+    color: #191919;
+  }
+  
 .categorias1 {width: 100%; height: 50px; background-image: linear-gradient(to bottom, #E5D3C0, #b9b6ac); margin-top: 50px;}
 
 .categorias {width: 100%; height: 100%; background-color: #b9b6ac;}
 
-.tabelabolas {display: grid; grid-template-columns: repeat(5, 1fr); justify-content: center; align-items: center; margin-left: 5%;margin-right: 4%; height: 100%; text-align: center}
+.tabelabolas {display: grid; grid-template-columns: repeat(4, 1fr); justify-content: center; align-items: center; margin-left:5%;margin-right: 5%; height: 100%; text-align: center; width: 95%}
+
+.nomecategoria {margin-right: 17%; font-weight: bold;}
 
 .bolapreta {flex-grow: 0;flex-shrink: 0;width: 15vw; height: 15vw; max-width: 200px; max-height: 200px;margin: 2vw; background-color: #191919;border-radius: 50%;}
 
+.imgcategoria {max-width: 75%; margin-top: 12%;}
+
 .quemsomos1 {width: 100%; height: 50px; background-image: linear-gradient(to bottom, #b9b6ac, #dcdcdc);}
 
-.quemsomos {width: 100%; height: 100%; background-color: #dcdcdc;}
+.quemsomos {width: 100%; background-color: #dcdcdc; padding: 5% 10% 50px 0}
 
+.container {margin-left: 5%;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: auto;
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+    grid-gap: 20px;
+    align-items: center;
+  }
+
+  .imgquemsomos {
+    width: 100%;
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .selo {
+    width: 100%;
+    max-width: 25%;
+    height: auto;
+    margin-left: -35%;
+    margin-bottom: -70%
+  }
+
+  .txquemsomos {
+    text-align: justify;
+    margin-top: 10px;
+    margin-left: -100%;
+    margin-right: auto;
+  }
+
+.footer1 {width: 100%; height: 50px; background-image: linear-gradient(to bottom, #dcdcdc, #191919);}
+
+footer {background-color: #191919; color: white;}
+
+.logofooter {width: 15%; margin: 5%}
+
+.pfooter {margin-left: 5%}
+
+.copy {text-align: center; margin-top: 50px; font-size: 12px}
+
+/*____________________________________________________________________________________*/
+
+@media only screen and (max-width: 700px) {
+body {padding-top: 70px;}
+
+.fundo {background-color: #191919; position: fixed; width: 100%; top:0; text-align: center; z-index: 2;}
+
+.logo {max-width: 90px;}
+
+.cxdebusca {width: 100%; border-radius: 20px; height: 40px; font-weight: bold; background-color: white; margin-top: 15px}
+
+.inputmenu {float: left; width: 80%; padding: 15px; border-radius: 20px; height: 40px; font-weight: bold; border: none; background-color:transparent; color: #000;}
+
+.inputmenu:focus {box-shadow: 0 0 0 0}
+
+.lupa {float: right; width: 20px; margin: 10px;}
+
+.op {display: none}
+
+.op:hover {color: grey;}
+
+.carrinho {width: 50px; margin-top:1px; margin-right: 10px}
+
+.quanticar {position: absolute; margin-top: -11px; margin-left: -8%; font-size: 15px; font-weight: bold;}
+
+select {display: none}
+
+select:hover {color: grey;}
+
+.category {margin-left: 15px; color: white;}
+
+.selected {color: grey; }
+  
+option {font-size: 15px; color: black}
+
+.menuicon {display: block; width: 40px; margin-left: 15px;}
+
+.sidenav {height: 100%; width: 0; position: fixed; z-index: 1; top: 0; right: 0; background-color: #b81414; overflow-x: hidden; padding-top: 40px; transition: 0.5s; border-left: 1px solid white; display: none; text-align: left;}
+
+.sidenav a {text-decoration: none; font-size: 15px; color: white; display: block; transition: 0.2s;}
+
+.sidenav a:hover {color: grey;}
+
+.sidenav .closebtn {position: absolute; top: 0; right: 10px; font-size: 36px;}
+
+.propaganda {display: none}
+
+.hidden {display: none;}
+
+#slides {margin-bottom: 50px}
+
+#produtos {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+
+.container {
+      grid-template-columns: 1fr;
+    }
+  
+.selo {width: 100%;
+    max-width: 25%;
+    height: auto;
+    margin-left: 70%;
+    margin-top: -100%
+}
+
+.txquemsomos {
+    text-align: justify;
+    margin-top: 10px;
+    margin-left: 3%;
+    margin-right: auto;
+  }
+
+}
 </style>
 </head>
 <body>
 <header>
 <table class="fundo">
   <thead>
+<td><div id="mySidenav" class="sidenav" id="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="category" onclick="filterproducts('all')"><a href="#">Página Inicial</a></div>
+      <hr><div class="category"><a href="https://wa.me/5593992244987">Contato</a></div>
+      <hr><div class="category"><a href="https://www.instagram.com/_jgloot_/">Intagram</a></div>
+      <hr><div class="category"><h5>Categorias:</h5></div>
+      <hr><div class="category" onclick="filterproducts('acessorios')" id="acessorios">Acessórios</div>
+      <hr><div class="category" onclick="filterproducts('eletronicos')" id="eletronicos">Eletrônicos</div>
+      <hr><div class="category" onclick="filterproducts('beleza')" id="beleza">Beleza</div>
+      <hr><div class="category" onclick="filterproducts('esportes')" id="esportes">Esportes/Calçados</div>
+      <hr><div class="category" onclick="filterproducts('papelaria')" id="papelaria">Papelaria</div>
+      <hr><div class="category" onclick="filterproducts('veiculos')" id="veiculos">Veículos</div>
+      <hr><div class="category" onclick="filterproducts('moda')" id="moda">Moda</div>
+      <hr><div class="category" onclick="filterproducts('sexshop')" id="sexshop">Sex Shop</div>
+      <hr>
+      </div>
+      <span onclick="openNav()"><img class="menuicon" src="https://i.postimg.cc/1Rq9KB0N/menu.png" alt="menu"></span></td>
+      
+<!--_________________________________________________________________________________________-->      
+      
     <td><img class="logo" src="https://i.postimg.cc/7hXhdRCS/Logo-5000-x-3000-px.png" alt="logo"></td>
     <td><div class="cxdebusca">
     <input class="form-control inputmenu" type="text" id="campopesquisa" placeholder="Buscar produtos..." type="text">
@@ -117,25 +285,8 @@ option {font-size: 20px; color: black}
     <td><h1 class="quanticar">0</h1></td>
 
 <!--_________________________________________________________________________________________-->	  
-    
-    <td><div id="mySidenav" class="sidenav" id="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <div class="category" onclick="filterproducts('all')"><a href="#">Página Inicial</a></div>
-      <hr><div class="category"><a href="https://wa.me/5593992244987">Contato</a></div>
-      <hr><div class="category"><a href="https://www.instagram.com/_jgloot_/">Intagram</a></div>
-      <hr><div class="category"><h5>Categorias:</h5></div>
-      <hr><div class="category" onclick="filterproducts('acessorios')" id="acessorios">Acessórios</div>
-      <hr><div class="category" onclick="filterproducts('eletronicos')" id="eletronicos">Eletrônicos</div>
-      <hr><div class="category" onclick="filterproducts('beleza')" id="beleza">Beleza</div>
-      <hr><div class="category" onclick="filterproducts('esportes')" id="esportes">Esportes/Calçados</div>
-      <hr><div class="category" onclick="filterproducts('papelaria')" id="papelaria">Papelaria</div>
-      <hr><div class="category" onclick="filterproducts('veiculos')" id="veiculos">Veículos</div>
-      <hr><div class="category" onclick="filterproducts('moda')" id="moda">Moda</div>
-      <hr><div class="category" onclick="filterproducts('sexshop')" id="sexshop">Sex Shop</div>
-      <hr>
-      </div>
-      <span onclick="openNav()"><img class="menuicon" src="https://i.postimg.cc/D0fXxYLF/menu.png" alt="menu"></span></td>
-      <td><h1 style="color: white">SELFIE <br> CELULARES</h1></td>
+
+      <td class="propaganda"><h1 style="color: white">SELFIE <br> CELULARES</h1></td>
     <!--<td><a href="https://api.whatsapp.com/send?phone=5593991991685"><img class="propaganda" src="https://i.postimg.cc/T36mL6xH/propagandatopo.png" alt="propaganda"></a></td>-->    
   </thead>
 </table>
@@ -175,7 +326,6 @@ option {font-size: 20px; color: black}
 </div>
 
 <div class="categorias1"></div>
-
 <div class="categorias">
 
 <table class="ofertas">
@@ -183,26 +333,35 @@ option {font-size: 20px; color: black}
 </table>
 
 <div class="tabelabolas">
+
 <div class="tudojunto">
-<div class="bolapreta"></div>
-<p class="nomecategoria">Tudo</p>
+<div class="bolapreta">
+<img class="imgcategoria" src="https://i.postimg.cc/KzRr3DQc/2.png" alt="sons">
 </div>
-<div class="tudojunto">
-<div class="bolapreta"></div>
 <p class="nomecategoria">Sons</p>
 </div>
+
 <div class="tudojunto">
-<div class="bolapreta"></div>
+<div class="bolapreta">
+<img class="imgcategoria" src="https://i.postimg.cc/yN6TsHZZ/1.png" alt="eletronicos">
+</div>
 <p class="nomecategoria">Eletrônicos</p>
 </div>
+
 <div class="tudojunto">
-<div class="bolapreta"></div>
+<div class="bolapreta">
+<img class="imgcategoria" src="https://i.postimg.cc/ydthm3rm/3.png" alt="fones">
+</div>
 <p class="nomecategoria">Fones</p>
 </div>
+
 <div class="tudojunto">
-<div class="bolapreta"></div>
+<div class="bolapreta">
+<img class="imgcategoria" src="https://i.postimg.cc/4yc6B4rr/4.png" alt="smartphones">
+</div>
 <p class="nomecategoria">Smartphones</p>
 </div>
+
 </div>
 </div>
 
@@ -213,13 +372,49 @@ option {font-size: 20px; color: black}
 <td><h4 class="t1 mt-4">Quem somos</h4></td> 
 </table>
 
-quem somos
+<div class="container">
+    <img class="imgquemsomos" src="https://i.postimg.cc/B65p0BSm/VA-2.png" alt="quemsomos">
+    <img class="selo" src="https://i.postimg.cc/przg36yy/figuras-categorias.png" alt="selo">
+    <div class="txquemsomos">
+      <p>Loja física e virtual de importados localizada em Santarém que se destaca pela diversidade de produtos exclusivos e de alta qualidade.
+      <br><br>
+      Com uma ampla gama de artigos importados, nossa loja oferece desde eletrônicos modernos e gadgets inovadores até itens de decoração sofisticados e produtos de cuidados pessoais de marcas renomadas.
+      <br><br>
+      Na nossa loja física em Santarém, os clientes podem desfrutar de um ambiente acolhedor e atendimento personalizado, enquanto na nossa loja virtual, garantimos uma experiência de compra segura e conveniente para clientes de todo a região.
+      <br><br>
+      Seja para presentear alguém especial ou para se mimar com um mimo exclusivo, na nossa loja de importados você certamente encontrará algo que irá encantar você.</p>
+    </div>
+  </div>
 </div>
 </main>
 
-    <footer>
-        <p>&copy; 2024 Meu Site. Todos os direitos reservados.</p>
-    </footer>
+<footer>
+<div class="footer1"></div>
+<img class="logofooter" src="https://i.postimg.cc/7hXhdRCS/Logo-5000-x-3000-px.png" alt="logo">
+<div class="pfooter">
+<p><b>Email:</b> vaimports145@gmail.com</p>
+<p><b>WhatsApp:</b> (93) 99175-5419</p>
+<p><b>Horário de atendiento:</b> Segunda à Sexta, das 8:00 as 18:00</p>
+<p><b>Instagram:</b> @va_imports_</p>
+<p class="copy">&copy; 2024 VA Imports. Todos os direitos reservados.</p>
+</div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
+<script>
+  $(document).ready(function(){
+    if ($(window).width() < 700) {
+      $("#produtos").on("swipeleft", function(){
+        $(this).animate({scrollLeft: '+=' + $(window).width()}, 'slow');
+      });
+      
+      $("#produtos").on("swiperight", function(){
+        $(this).animate({scrollLeft: '-=' + $(window).width()}, 'slow');
+      });
+    }
+  });
+</script>
 
 </body>
 </html>
