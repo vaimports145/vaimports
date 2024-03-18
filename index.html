@@ -106,15 +106,18 @@ option {font-size: 20px; color: black}
   
 .categorias1 {width: 100%; height: 50px; background-image: linear-gradient(to bottom, #E5D3C0, #b9b6ac); margin-top: 50px;}
 
-.categorias {width: 100%; height: 100%; background-color: #b9b6ac;}
+.categorias {width: 100%; height: 100%; background-color: #b9b6ac; }
 
-.tabelabolas {display: grid; grid-template-columns: repeat(4, 1fr); justify-content: center; align-items: center; margin-left:5%;margin-right: 5%; height: 100%; text-align: center; width: 95%}
+.tabelabolas {display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 20px;
+    margin-left: 5%;}
 
-.nomecategoria {margin-right: 17%; font-weight: bold;}
+.nomecategoria {margin-left: 35%; font-size: 15px;}
 
-.bolapreta {flex-grow: 0;flex-shrink: 0;width: 15vw; height: 15vw; max-width: 200px; max-height: 200px;margin: 2vw; background-color: #191919;border-radius: 50%;}
+.bolapreta {flex: 0 0 calc(20% - 20px); width: 20vw; height: 20vw; max-width: 200px; max-height: 200px; background-color: #191919;border-radius: 50%; margin: 1vw;}
 
-.imgcategoria {max-width: 75%; margin-top: 12%;}
+.imgcategoria {max-width: 75%; margin-top: 12%; margin-left: 10%}
 
 .quemsomos1 {width: 100%; height: 50px; background-image: linear-gradient(to bottom, #b9b6ac, #dcdcdc);}
 
@@ -169,11 +172,11 @@ body {padding-top: 70px;}
 
 .fundo {background-color: #191919; position: fixed; width: 100%; top:0; text-align: center; z-index: 2;}
 
-.logo {max-width: 90px;}
+.logo {max-width: 60px; margin-left: 20px}
 
 .cxdebusca {width: 100%; border-radius: 20px; height: 40px; font-weight: bold; background-color: white; margin-top: 15px}
 
-.inputmenu {float: left; width: 80%; padding: 15px; border-radius: 20px; height: 40px; font-weight: bold; border: none; background-color:transparent; color: #000;}
+.inputmenu {float: left; width: 60%; padding: 15px; border-radius: 20px; height: 40px; font-weight: bold; border: none; background-color:transparent; color: #000;}
 
 .inputmenu:focus {box-shadow: 0 0 0 0}
 
@@ -183,9 +186,9 @@ body {padding-top: 70px;}
 
 .op:hover {color: grey;}
 
-.carrinho {width: 50px; margin-top:1px; margin-right: 10px}
+.carrinho {width: 40px; margin-top:1px; margin-right: 20px;}
 
-.quanticar {position: absolute; margin-top: -11px; margin-left: -8%; font-size: 15px; font-weight: bold;}
+.quanticar {position: absolute; margin-top: -11px; margin-left: -10%; font-size: 15px; font-weight: bold;}
 
 select {display: none}
 
@@ -217,7 +220,18 @@ option {font-size: 15px; color: black}
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       white-space: nowrap;
+      margin-right: 0;
+      margin-left: 0;
+      padding-left: 5%
     }
+    
+#tabelabolas {overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;}
+      
+.tabelabolas {}
+      
+.bolapreta {width: 150px; height: 150px}
 
 .container {
       grid-template-columns: 1fr;
@@ -327,11 +341,10 @@ option {font-size: 15px; color: black}
 
 <div class="categorias1"></div>
 <div class="categorias">
-
 <table class="ofertas">
 <td><h4 class="t1 mt-4">Categorias</h4></td> 
 </table>
-
+<div id="tabelabolas">
 <div class="tabelabolas">
 
 <div class="tudojunto">
@@ -361,10 +374,9 @@ option {font-size: 15px; color: black}
 </div>
 <p class="nomecategoria">Smartphones</p>
 </div>
-
 </div>
 </div>
-
+</div>
 <div class="quemsomos1"></div>
 <div class="quemsomos">
 
@@ -410,6 +422,14 @@ option {font-size: 15px; color: black}
       });
       
       $("#produtos").on("swiperight", function(){
+        $(this).animate({scrollLeft: '-=' + $(window).width()}, 'slow');
+      });
+      
+      $("#tabelabolas").on("swipeleft", function(){
+        $(this).animate({scrollLeft: '+=' + $(window).width()}, 'slow');
+      });
+      
+      $("#tabelabolas").on("swiperight", function(){
         $(this).animate({scrollLeft: '-=' + $(window).width()}, 'slow');
       });
     }
