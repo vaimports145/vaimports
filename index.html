@@ -46,6 +46,8 @@ option {font-size: 20px; color: black;}
 
 #slides {margin-bottom: 50px;}
 
+#slidescell {display: none}
+
 /*---------------------------------------------------Produtos--------------------------------------------------*/
 
 .ofertas {width: 90%; margin-left: 5%; margin-bottom: 20px;}
@@ -58,7 +60,7 @@ option {font-size: 20px; color: black;}
 .produto:hover {background-color: #dcdcdc;}
 .produto {flex: 0 0 calc(20% - 20px); margin: 10px; background-color: #ffffff; padding: 5px; box-shadow: 1px 2px 10px black; border-radius: 10px; width: 100%;}
 .imgproduto {width: 100%;}
-.nomeproduto {margin-bottom: 0px;}
+.nomeproduto {margin-bottom: 0px; text-align: justify}
 .precoproduto {margin-top: 10px; color: #191919;}
 
 /*---------------------------------------------------Categorias--------------------------------------------------*/
@@ -107,13 +109,14 @@ footer {background-color: #191919; color: white;}
   .selected {color: grey;}
   option {font-size: 15px; color: black;}
   .menuicon {display: block; width: 40px; margin-left: 15px;}
-  .sidenav {display: block; height: 100%; width: 0; position: fixed; z-index: 1; top: 0; left: 0; background-color: #191919; overflow-x: hidden; padding-top: 40px; transition: 0.5s; border-left: 1px solid white; text-align: left;}
+  .sidenav {display: block; height: 100%; width: 0; position: fixed; z-index: 1; top: 0; left: 0; background-color: #191919; overflow-x: hidden; padding-top: 40px; transition: 0.5s; border-right: 1px solid white; text-align: left;}
   .sidenav a {text-decoration: none; font-size: 15px; color: white; display: block; transition: 0.2s;}
   .sidenav a:hover {color: grey;}
   .sidenav .closebtn {position: absolute; top: 0; right: 10px; font-size: 36px;}
   .propaganda {display: none;}
   .hidden {display: none;}
-  #slides {margin-bottom: 50px;}
+  #slides {display: none}
+  #slidescell {display: block; margin-bottom: 50px}
   #produtos {overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; margin-right: 0; margin-left: 0; padding-left: 5%;}
   #tabelabolas {overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap;}
   .tudojunto {flex: 0 0 calc(25% - 25px); text-align: center; padding-right: 5%;}
@@ -188,6 +191,16 @@ footer {background-color: #191919; color: white;}
 </div>
 </div>
 
+<div id="slidescell">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="8000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="https://i.postimg.cc/FFq3gMcc/bannercell.png" alt="First slide">
+    </div>
+  </div>
+</div>
+</div>
+
 <!--____________________________________Produtos_______________________________________________________-->
 
 <table class="ofertas">
@@ -201,7 +214,7 @@ footer {background-color: #191919; color: white;}
 
 <!--__________________________________Url da página do produto_________________________________________-->
 
-<a href="htmlproduto27.html">
+<a href="tvbox.html">
 
 <!--____________________________________Imagem do produto_______________________________________________________-->
 
@@ -209,7 +222,7 @@ footer {background-color: #191919; color: white;}
 
 <!--____________________________________Nome do produto_______________________________________________________-->
 
-<p class="nomeproduto" style="text-align: justify">TV Box (Converta Sua TV...</p>
+<p class="nomeproduto">TV Box (Converta Sua TV...</p>
 
 <!--____________________________________Preço do produto_______________________________________________________-->
 
