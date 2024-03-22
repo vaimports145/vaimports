@@ -45,15 +45,42 @@ option {font-size: 20px; color: black;}
 
 /*---------------------------------------------------Produto Principal--------------------------------------------------*/
 
-.imagensproduto-principal {margin-left: 5%;background-color: #ffffff;padding: 10px;box-shadow: 1px 2px 10px black;border-radius: 10px;width: calc(55% - 10px);margin-top: 50px;float: left;}
+.imagensproduto-principal {margin-left: 5%;background-color: #ffffff;padding: 15px;box-shadow: 1px 2px 10px black;border-radius: 10px;width: calc(55% - 10px);margin-top: 50px;float: left; height: 500px;}
 
-.inforproduto-principal {margin-right: 5%;background-color: #ffffff;padding: 5px;box-shadow: 1px 2px 10px black;border-radius: 10px;width: 34%;margin-top: 50px;float: right;}
+.inforproduto-principal {margin-right: 5%;background-color: #ffffff;padding: 15px;box-shadow: 1px 2px 10px black;border-radius: 10px;width: 35%;margin-top: 50px;float: right;height: 500px; text-align: justify}
 
-.imagemproduto {width: calc(70% - 10px);max-width: 600px;float: right; border-radius: 10px}
+.imagemproduto {width: calc(75% - 3px);max-width: 480px;float: right; border-radius: 10px}
 
-.miniaturas {float: left;width: calc(30% - 10px); margin-right: 10px;}
+.miniaturas {float: left;width: calc(25% - 3px)}
 
 .miniatura {width: 60%;margin-bottom: 5%;border-radius: 10px}
+
+.vendidos {color: grey; margin: 0}
+
+.nomeproduto-principal {margin-bottom: 0}
+
+.estrela {color: gold; font-size: 24px; margin-top: 0}
+
+.linha {border: 1px solid grey}
+
+.promocaoproduto-principal {color: red; margin-bottom: 0}
+
+.precoproduto-principal {color: green}
+
+.quantidade {border: 1px solid black; border-radius: 10px; width: 100%}
+
+.inputquantidade {width: 100%; text-align: center; border: 0; float: center; font-size: 20px;}
+.inputquantidade:focus {outline: none}
+
+.menosquantidade {border: 0; font-weight: bold; float: left; font-size: 18px; border-radius: 10px; background-color: white; margin: 0}
+
+.maisquantidade {border: 0; float: right; font-weight: bold; font-size: 18px; border-radius: 10px; background-color: white; margin: 0}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
+
+input[type="number"] {-moz-appearance: textfield;}
+
+.compraragora {background-color: green; color: white; margin-top: 20px; border: 0; border-radius: 10px; width: 100%; height: 10%}
 
 /*---------------------------------------------------Produtos--------------------------------------------------*/
 
@@ -173,6 +200,26 @@ footer {background-color: #191919; color: white;}
 </div>
 
 <div class="inforproduto-principal">
+<p class="vendidos">1556 Vendidos</p>
+<h4 class="nomeproduto-principal">TV Box (Transforme sua TV Em Smart)</h4>
+<p><span class="estrela">&#9733;</span><span class="estrela">&#9733;</span><span class="estrela">&#9733;</span><span class="estrela">&#9733;</span><span class="estrela">&#9733;</span> 5.0 ( 754 Avaliações )</p>
+
+<hr class="linha">
+
+<p class="promocaoproduto-principal"><s>R$300,00</s></p>
+<h3 class="precoproduto-principal">R$200,00</h3>
+
+<hr class="linha">
+
+<div class="quantidade">
+<table>
+  <td class="col-1"><button class="menosquantidade" type="button" onclick="decrementarQuantidade()">-</button></td>
+  <td class="col-10"><input class="inputquantidade" type="number" id="quantidade" name="quantidade" min="0" step="1" value="0"></td>
+  <td class="col-1"><button class="maisquantidade" type="button" onclick="incrementarQuantidade()">+</button></td>
+</table>
+</div>
+
+<button class="compraragora">COMPRAR AGORA</button>
 </div>
 
 </div>
@@ -247,6 +294,18 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   var imagens = document.getElementById('slides');
 }
+
+/////////////////////////////////////////// INPUT QUANTIDADE ////////////////////////////////////////////////////
+
+function incrementarQuantidade() {
+    var quantidadeInput = document.getElementById("quantidade");
+    quantidadeInput.stepUp();
+  }
+
+  function decrementarQuantidade() {
+    var quantidadeInput = document.getElementById("quantidade");
+    quantidadeInput.stepDown();
+  }
 </script>
 
 </body>
