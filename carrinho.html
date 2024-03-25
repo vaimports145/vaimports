@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seu carrinho</title> <link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/tJJZngmW/Favicon.png"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<meta property="og:title" content="Seu carrinho">
+<meta property="og:description" content="Monte seu carrinho na VA Imports">
+<meta property="og:image" content="https://i.postimg.cc/zBNCgKv6/Carrinho-VA.png">
+<meta property="og:image:width" content="300">
+<meta property="og:image:height" content="300">
+<meta property="og:url" content="https://vaimports145.github.io/vaimports/carrinho.html">
+<style>
+/*---------------------------------------------------Principal--------------------------------------------------*/
+body {padding-top: 115px; background-color: #E5D3C0; margin: 0; display: flex; flex-direction: column; min-height: 100vh;}
+
+.fundo {background-color: #191919; position: fixed; width: 100%; top:0; text-align: center; z-index: 2;}
+
+.logo {max-width: 150px;}
+
+.cxdebusca {width: 100%; border-radius: 20px; height: 50px; font-weight: bold; background-color: white; margin-top: 15px;}
+
+.inputmenu {float: left; width: 80%; padding: 15px; border-radius: 20px; height: 50px; font-weight: bold; border: none; background-color:transparent; color: #000;}
+.inputmenu:focus {box-shadow: 0 0 0 0;}
+
+.lupa {float: right; width: 30px; margin: 10px;}
+
+.op {font-size: 15px; text-decoration:none; color: #ffffff; font-weight: bold;}
+.op:hover {color: grey;}
+
+.carrinho {width: 50px; margin-top:65px; text-align: left;}
+
+.quanticar {position: absolute; margin-top: 22px; margin-left: -4%; font-size: 15px; font-weight: bold;}
+
+select {background-color: transparent; border: none; color: #ffffff; font-size: 15px; font-weight: bold;}
+select:hover {color: grey;}
+
+.selected {color: grey;}
+
+option {font-size: 20px; color: black;}
+
+.menuicon {display: none;}
+
+.sidenav {display: none;}
+
+.propaganda {max-width: 200px; margin-right: -20px; margin-bottom: -1px;}
+
+/*---------------------------------------------------Carrinho--------------------------------------------------*/
+
+.txcarrinho {margin-top: 50px; margin-left:5%}
+
+.divglobal {margin: 5%}
+
+.divcarrinho {background-color: white; float: left; width:74%; border-radius: 10px;} 
+
+#imagemProduto {width: 30%; max-width: 200px; vertical-align: top; padding: 10px}
+
+#nomeProduto {display: block; width: 100%;}
+
+#precoProduto {
+  display: block; width: 60%
+}
+
+#quantidadeProduto {width: 60%}
+
+#totalProduto {width: 80%}
+
+.thproduto {width: 60%; padding: 10px}
+
+.thquantidade {width: 20%}
+
+.thtotal {width: 20%;}
+
+td div {
+  display: inline-block; width: 60%;
+}
+
+.inforcarrinho {float: right; background-color: white; width: 25%; padding: 20px; border-radius: 10px}
+
+.h4total {float: left}
+
+#precoProdutoFora {width: 50%; float: right}
+
+/*---------------------------------------------------Footer--------------------------------------------------*/
+
+.footer1 {width: 100%; height: 50px; background-image: linear-gradient(to bottom, #dcdcdc, #191919);}
+footer {background-color: #191919; color: white;}
+.logofooter {width: 15%; margin: 5%;}
+.pfooter {margin-left: 5%;}
+.copy {text-align: center; margin-top: 50px; font-size: 12px;}
+
+/*---------------------------------------------------Celular--------------------------------------------------*/
+
+@media only screen and (max-width: 700px) {
+  body {padding-top: 80px; background-color: #dcdcdc}
+  .logo {max-width: 60px; margin: 20px;}
+  .cxdebusca {height: 40px;}
+  .inputmenu {width: 60%; height: 40px;}
+  .lupa {width: 20px;}
+  .op {display: none;}
+  .carrinho {width: 40px; margin-top: 1px; margin: 20px;}
+  .quanticar {margin-top: -11px; margin-left: -9%;}
+  select {display: none;}
+  .category {margin-left: 15px; color: white;}
+  .category:hover {color: grey}
+  .selected {color: grey;}
+  option {font-size: 15px; color: black;}
+  .menuicon {display: block; width: 40px; margin-left: 15px;}
+  .sidenav {display: block; height: 100%; width: 0; position: fixed; z-index: 1; top: 0; left: 0; background-color: #191919; overflow-x: hidden; padding-top: 40px; transition: 0.5s; border-right: 1px solid white; text-align: left;}
+  .sidenav a {text-decoration: none; font-size: 15px; color: white; display: block; transition: 0.2s;}
+  .sidenav a:hover {color: grey;}
+  .sidenav .closebtn {position: absolute; top: 0; right: 10px; font-size: 36px;}
+  .propaganda {display: none;}
+  #produtos {overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; margin-right: 0; margin-left: 0; padding-left: 5%;}
+  .imagensproduto-principal {width: 100%; box-shadow: 0 0 0; margin: 0; border-radius: 0; padding: 30px}
+  #imagemproduto {width: 100%; float: left;}
+  .miniaturas {display: flex; flex-wrap: nowrap; margin-top: 15px;}
+  .miniatura {margin-right: 10px}
+  .inforproduto-principal {width: 100%; height: 100%; margin-top: 5px; box-shadow: 0 0 0; margin: 0; border-radius: 0; padding: 30px}
+  .hrdescricao {float: left; width: 94%; display: block; border: 10px solid grey; margin-bottom: 40px}
+  .descricao {width: 100%; height: 100%; box-shadow: 0 0 0; text-align: center; margin: 0; border-radius: 0; margin-top: 10px; margin-bottom: 50px}
+</style>
+</head>
+<body>
+<header>
+<table class="fundo">
+  <thead>
+  
+<!--_________________________________________Menu________________________________________________-->
+
+<td><div id="mySidenav" class="sidenav" id="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="category" onclick="filterproducts('all')"><a href="#">Página Inicial</a></div>
+      <hr><div class="category"><a href="https://api.whatsapp.com/send?phone=5593991755419">WhatsApp</a></div>
+      <hr><div class="category"><a href="https://www.instagram.com/va_imports__/">Intagram</a></div>
+      <hr><div class="ml-3 text-white"><h5>Categorias:</h5></div>
+      <hr><div class="category" onclick="filterproducts('sons')" id="sons">Sons</div>
+      <hr><div class="category" onclick="filterproducts('eletronicos')" id="eletronicos">Eletrônicos</div>
+      <hr><div class="category" onclick="filterproducts('fones')" id="fones">Fones</div>
+      <hr><div class="category" onclick="filterproducts('smartphones')" id="smartphones">Smartphones</div>
+      <hr>
+      </div>
+      <span onclick="openNav()"><img class="menuicon" src="https://i.postimg.cc/1Rq9KB0N/menu.png" alt="menu"></span></td>
+      
+<!--_________________________________________Opções________________________________________________-->      
+      
+    <td><img class="logo" src="https://i.postimg.cc/7hXhdRCS/Logo-5000-x-3000-px.png" alt="logo"></td>
+    <td><div class="cxdebusca">
+    <input class="form-control inputmenu" type="text" id="campopesquisa" placeholder="Buscar produtos..." type="text">
+    <img class="lupa" src="https://i.postimg.cc/QxXJxRyD/Lupa.png" alt="lupa">
+    </div>
+    <nav class="navbar opcoes">
+      <a class="op" href="https://api.whatsapp.com/send?phone=5593991755419">WhatsApp</a> 
+      <a class="op" href="https://www.instagram.com/va_imports__/">Intagram</a>
+      <select class="w-25" name="select" id="category" onchange="filterProducts()">
+        <option hidden value= 0 >Categorias</option>
+        <option value="tudo">Tudo</option>
+        <option value="sons">Sons</option>
+        <option value="eletronicos">Eletrônicos</option>
+        <option value="fones">Fones</option>
+        <option value="smartphones">Smartphones</option>
+      
+      </select></nav></td>           
+    <td><a href="#carrinhoContainer"><img class="carrinho" src="https://i.postimg.cc/zBNCgKv6/Carrinho-VA.png" alt="carrinho"></a></td>     
+    <td><h1 class="quanticar">0</h1></td>
+
+<!--_________________________________________Propaganda________________________________________________-->	  
+
+      <td class="propaganda"><h1 style="color: white">SELFIE <br> CELULARES</h1></td>
+    <!--<td><a href="https://api.whatsapp.com/send?phone=5593991991685"><img class="propaganda" src="https://i.postimg.cc/T36mL6xH/propagandatopo.png" alt="propaganda"></a></td>-->    
+  </thead>
+</table>
+</header>
+<h3 class="txcarrinho">Meu Carrinho</h3>
+<div class="divglobal">
+<table class="divcarrinho">
+  <thead>
+    <tr>
+      <th class="thproduto">Produto</th>
+      <th class="thquantidade">Quantidade</th>
+      <th class="thtotal">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img id="imagemProduto" src="" alt="Imagem do Produto">
+        <div>
+          <input type="text" id="nomeProduto" readonly><br>
+          <input type="text" id="precoProduto" readonly>
+        </div>
+      </td>
+      <td><input type="text" id="quantidadeProduto"></td>
+      <td><input type="text" id="totalProduto" readonly></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="inforcarrinho">
+<h4 class="h4total">Total</h4>
+<input type="text" id="precoProdutoFora" readonly>
+</div>
+
+</div>
+<script>
+window.onload = function() {
+    // Obter os dados salvos do local storage
+    var imagemProduto = localStorage.getItem('imagemProdutoPrincipal');
+    var nomeProduto = localStorage.getItem('nomeProdutoPrincipal');
+    var precoProduto = localStorage.getItem('precoProdutoPrincipal');
+
+    // Preencher os campos com os dados salvos
+    document.getElementById('imagemProduto').src = imagemProduto;
+    document.getElementById('nomeProduto').value = nomeProduto;
+    document.getElementById('precoProduto').value = precoProduto;
+    document.getElementById('precoProdutoFora').value = precoProduto;
+};
+</script>
+</body>
+</html>
