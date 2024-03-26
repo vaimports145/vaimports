@@ -393,12 +393,23 @@ function salvarDados() {
     var nomeProduto = document.querySelector('.nomeproduto-principal').innerText;
     var precoProduto = document.querySelector('.precoproduto-principal').innerText;
 
-    // Salvar os dados no local storage
-    localStorage.setItem('imagemProdutoPrincipal', imagemProduto);
-    localStorage.setItem('nomeProdutoPrincipal', nomeProduto);
-    localStorage.setItem('precoProdutoPrincipal', precoProduto);
+    // Obter a lista de produtos do armazenamento local ou inicializá-la como um array vazio
+    var listaProdutos = JSON.parse(localStorage.getItem('listaProdutos')) || [];
 
-    alert('Dados do produto foram salvos!');
+    // Criar um objeto representando o produto
+    var novoProduto = {
+        imagem: imagemProduto,
+        nome: nomeProduto,
+        preco: precoProduto
+    };
+
+    // Adicionar o novo produto à lista de produtos
+    listaProdutos.push(novoProduto);
+
+    // Salvar a lista de produtos atualizada no armazenamento local
+    localStorage.setItem('listaProdutos', JSON.stringify(listaProdutos));
+
+    alert('Produto adicionado ao carrinho!');
 }
 </script>
 
