@@ -49,37 +49,59 @@ option {font-size: 20px; color: black;}
 
 .txcarrinho {margin-top: 50px; margin-left:5%}
 
-.divglobal {margin: 5%}
-
-.divcarrinho {background-color: white; float: left; width:74%; border-radius: 10px;} 
-
-#imagemProduto {width: 30%; max-width: 200px; vertical-align: top; padding: 10px}
-
-#nomeProduto {display: block; width: 100%;}
-
-#precoProduto {
-  display: block; width: 60%
+.divglobal {
+  margin-left: 5%; margin-right: 5%
 }
 
-#quantidadeProduto {width: 60%}
+.divcarrinho {
+  width: 70%;
+  background-color: white;
+  border-radius: 10px; float: left
+}
 
-#totalProduto {width: 80%}
+.divcarrinho th, .divcarrinho td {
+  padding: 8px;
+  text-align: left;
+}
 
-.thproduto {width: 60%; padding: 10px}
+.divcarrinho th {
+border-bottom: 1px solid grey;
+}
+
+.divcarrinho img {
+  max-width: 25%; /* Tamanho máximo da imagem */
+  height: auto;
+  vertical-align: top
+}
+
+.nome-preco {
+  display: inline-block; width: 75%
+}
+
+.inputtotal {width: 100%}
+
+.inputquantidade {width: 100%}
+
+.nomeInput {width: 100%}
 
 .thquantidade {width: 20%}
 
-.thtotal {width: 20%;}
+.thtotal {width: 20%}
 
-td div {
-  display: inline-block; width: 60%;
+.thproduto {width: 60%}
+
+.inforcarrinho {width: 25%; float: right; background-color: white
 }
 
-.inforcarrinho {float: right; background-color: white; width: 25%; padding: 20px; border-radius: 10px}
+.h4total {
+  margin-bottom: 10px;
+}
 
-.h4total {float: left}
+#precoTotal {
+  width: 100px;
+  padding: 5px;
+}
 
-#precoProdutoFora {width: 50%; float: right}
 
 /*---------------------------------------------------Footer--------------------------------------------------*/
 
@@ -173,48 +195,94 @@ footer {background-color: #191919; color: white;}
 </header>
 <h3 class="txcarrinho">Meu Carrinho</h3>
 <div class="divglobal">
-<table class="divcarrinho">
-  <thead>
-    <tr>
-      <th class="thproduto">Produto</th>
-      <th class="thquantidade">Quantidade</th>
-      <th class="thtotal">Total</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <img id="imagemProduto" src="" alt="Imagem do Produto">
-        <div>
-          <input type="text" id="nomeProduto" readonly><br>
-          <input type="text" id="precoProduto" readonly>
-        </div>
-      </td>
-      <td><input type="text" id="quantidadeProduto"></td>
-      <td><input type="text" id="totalProduto" readonly></td>
-    </tr>
-  </tbody>
-</table>
+  <table class="divcarrinho">
+    <thead>
+      <tr>
+        <th class="thproduto">Produto</th>
+        <th class="thquantidade">Quantidade</th>
+        <th class="thtotal">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Os produtos serão adicionados dinamicamente aqui -->
+    </tbody>
+  </table>
 
-<div class="inforcarrinho">
-<h4 class="h4total">Total</h4>
-<input type="text" id="precoProdutoFora" readonly>
+  <div class="inforcarrinho">
+    <h4 class="h4total">Total</h4>
+    <input type="text" id="precoTotal" readonly>
+  </div>
 </div>
 
 </div>
 <script>
 window.onload = function() {
-    // Obter os dados salvos do local storage
-    var imagemProduto = localStorage.getItem('imagemProdutoPrincipal');
-    var nomeProduto = localStorage.getItem('nomeProdutoPrincipal');
-    var precoProduto = localStorage.getItem('precoProdutoPrincipal');
+    // Obter a lista de produtos do armazenamento local
+    var listaProdutos = JSON.parse(localStorage.getItem('listaProdutos')) || [];
 
-    // Preencher os campos com os dados salvos
-    document.getElementById('imagemProduto').src = imagemProduto;
-    document.getElementById('nomeProduto').value = nomeProduto;
-    document.getElementById('precoProduto').value = precoProduto;
-    document.getElementById('precoProdutoFora').value = precoProduto;
+    // Selecionar a tabela do carrinho
+    var carrinhoTableBody = document.querySelector('.divcarrinho tbody');
+
+    // Percorrer a lista de produtos e adicionar cada produto ao carrinho
+    listaProdutos.forEach(function(produto) {
+        var newRow = document.createElement('tr');
+
+        // Célula para a imagem, nome e preço
+        var infoCell = document.createElement('td');
+        
+
+        var img = document.createElement('img');
+        img.src = produto.imagem;
+        img.alt = "Imagem do Produto";
+        infoCell.appendChild(img);
+
+        var nomePrecoDiv = document.createElement('div');
+        nomePrecoDiv.classList.add('nome-preco');
+
+        var nomeInput = document.createElement('input');
+        nomeInput.classList.add('nomeInput');
+        nomeInput.type = "text";
+        nomeInput.value = produto.nome;
+        nomeInput.readOnly = true;
+        nomePrecoDiv.appendChild(nomeInput);
+
+        var precoInput = document.createElement('input');
+        precoInput.classList.add('precoInput');
+        precoInput.type = "text";
+        precoInput.value = produto.preco;
+        precoInput.readOnly = true;
+        nomePrecoDiv.appendChild(precoInput);
+
+        infoCell.appendChild(nomePrecoDiv);
+
+        newRow.appendChild(infoCell);
+
+        // Célula para a quantidade
+        var quantidadeCell = document.createElement('td');
+        //quantidadeInput.classList.add('th');
+        
+        var quantidadeInput = document.createElement('input');
+        quantidadeInput.classList.add('inputquantidade');
+        quantidadeInput.type = "text";
+        quantidadeCell.appendChild(quantidadeInput);
+        newRow.appendChild(quantidadeCell);
+
+        // Célula para o total
+        var totalCell = document.createElement('td');
+        
+
+        var totalInput = document.createElement('input');
+        totalInput.classList.add('inputtotal');
+        totalInput.type = "text";
+        totalInput.readOnly = true;
+        totalCell.appendChild(totalInput);
+        newRow.appendChild(totalCell);
+
+        // Adicionar a nova linha à tabela do carrinho
+        carrinhoTableBody.appendChild(newRow);
+    });
 };
+
 </script>
 </body>
 </html>
