@@ -47,9 +47,13 @@ option {font-size: 20px; color: black;}
 
 /*---------------------------------------------------Carrinho--------------------------------------------------*/
 
-.txcarrinho {margin-top: 50px; margin-left:5%}
+#mensagemCarrinhoVazio {text-align: center;  position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%)}
+    
+.botaoconferir {background-color: #191919; border-radius: 20px; padding: 20px; color: white; margin-top: 300px}    
 
-.divglobal {
+#txcarrinho {margin-top: 50px; margin-left:5%}
+
+#divglobal {
   margin-left: 5%; margin-right: 5%
 }
 
@@ -69,20 +73,24 @@ border-bottom: 1px solid grey;
 }
 
 .divcarrinho img {
-  max-width: 25%; /* Tamanho máximo da imagem */
+  width: 40%; max-width: 100px; /* Tamanho máximo da imagem */
   height: auto;
-  vertical-align: top
+  vertical-align: top; 
 }
 
 .nome-preco {
-  display: inline-block; width: 75%
+  display: inline-block; width: 55%; margin-left: 5px
 }
 
 .inputtotal {width: 100%}
 
 .inputquantidade {width: 100%}
 
-.nomeInput {width: 100%}
+.nomeInput {width: 100%; border: 0; font-size: 14px}
+
+.precoInput {width: 100%; font-weight: bold; color: #191919; border: 0}
+
+.removerProduto {float: left; margin-top: 40%;}
 
 .thquantidade {width: 20%}
 
@@ -90,7 +98,7 @@ border-bottom: 1px solid grey;
 
 .thproduto {width: 60%}
 
-.inforcarrinho {width: 25%; float: right; background-color: white
+.inforcarrinho {width: 25%; float: right; background-color: white; border-radius: 10px; padding: 10px
 }
 
 .h4total {
@@ -193,8 +201,13 @@ footer {background-color: #191919; color: white;}
   </thead>
 </table>
 </header>
-<h3 class="txcarrinho">Meu Carrinho</h3>
-<div class="divglobal">
+<div id="mensagemCarrinhoVazio" style="display: none;">
+	<h2>Seu carrinho está vazio</h2><br>
+    <a href="produtos.html"><span class="botaoconferir">Confira nossos produtos</span></a>
+</div>
+<h3 id="txcarrinho">Meu Carrinho</h3>
+<div id="divglobal">
+<form action="https://api.sheetmonkey.io/form/uWEAGr6vo7kq8QBa6qsEsj" method="post">
   <table class="divcarrinho">
     <thead>
       <tr>
@@ -211,25 +224,37 @@ footer {background-color: #191919; color: white;}
   <div class="inforcarrinho">
     <h4 class="h4total">Total</h4>
     <input type="text" id="precoTotal" readonly>
+
+  <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
+  <input type="submit" value="Submit" />
   </div>
+</form>
 </div>
 
-</div>
 <script>
 window.onload = function() {
     // Obter a lista de produtos do armazenamento local
     var listaProdutos = JSON.parse(localStorage.getItem('listaProdutos')) || [];
 
+    // Atualizar a quantidade de produtos na lista
+    document.querySelector('.quanticar').textContent = listaProdutos.length;
+
+    // Verificar se há produtos na lista e exibir a mensagem se estiver vazia
+    if (listaProdutos.length === 0) {
+        document.getElementById('mensagemCarrinhoVazio').style.display = 'block';
+        document.getElementById('divglobal').style.display = 'none';
+        document.getElementById('txcarrinho').style.display = 'none';
+    }
+
     // Selecionar a tabela do carrinho
     var carrinhoTableBody = document.querySelector('.divcarrinho tbody');
 
     // Percorrer a lista de produtos e adicionar cada produto ao carrinho
-    listaProdutos.forEach(function(produto) {
+    listaProdutos.forEach(function(produto, index) {
         var newRow = document.createElement('tr');
 
         // Célula para a imagem, nome e preço
         var infoCell = document.createElement('td');
-        
 
         var img = document.createElement('img');
         img.src = produto.imagem;
@@ -239,19 +264,29 @@ window.onload = function() {
         var nomePrecoDiv = document.createElement('div');
         nomePrecoDiv.classList.add('nome-preco');
 
-        var nomeInput = document.createElement('input');
+        var nomeInput = document.createElement('textarea');
         nomeInput.classList.add('nomeInput');
-        nomeInput.type = "text";
+        nomeInput.name = 'nomeProduto_' + index; // Adicionando o índice ao atributo name
         nomeInput.value = produto.nome;
         nomeInput.readOnly = true;
         nomePrecoDiv.appendChild(nomeInput);
 
         var precoInput = document.createElement('input');
         precoInput.classList.add('precoInput');
+        precoInput.name = 'precoProduto_' + index; // Adicionando o índice ao atributo name
         precoInput.type = "text";
         precoInput.value = produto.preco;
         precoInput.readOnly = true;
         nomePrecoDiv.appendChild(precoInput);
+
+        // Botão de Remover
+        var removerLink = document.createElement('a');
+        removerLink.href = "#";
+        removerLink.textContent = 'Remover';
+        removerLink.classList.add('removerProduto');
+        removerLink.dataset.index = index; // Armazenar o índice do produto no link
+        removerLink.onclick = removerProduto; // Associar a função de remoção ao clique
+        nomePrecoDiv.appendChild(removerLink);
 
         infoCell.appendChild(nomePrecoDiv);
 
@@ -259,20 +294,18 @@ window.onload = function() {
 
         // Célula para a quantidade
         var quantidadeCell = document.createElement('td');
-        //quantidadeInput.classList.add('th');
-        
         var quantidadeInput = document.createElement('input');
         quantidadeInput.classList.add('inputquantidade');
+        quantidadeInput.name = 'quantidadeProduto_' + index; // Adicionando o índice ao atributo name
         quantidadeInput.type = "text";
         quantidadeCell.appendChild(quantidadeInput);
         newRow.appendChild(quantidadeCell);
 
         // Célula para o total
         var totalCell = document.createElement('td');
-        
-
         var totalInput = document.createElement('input');
         totalInput.classList.add('inputtotal');
+        totalInput.name = 'totalProduto_' + index; // Adicionando o índice ao atributo name
         totalInput.type = "text";
         totalInput.readOnly = true;
         totalCell.appendChild(totalInput);
@@ -282,6 +315,31 @@ window.onload = function() {
         carrinhoTableBody.appendChild(newRow);
     });
 };
+
+function removerProduto() {
+    // Obter o índice do produto a ser removido do atributo data-index do link
+    var index = this.dataset.index;
+
+    // Remover o produto da lista de produtos do armazenamento local
+    var listaProdutos = JSON.parse(localStorage.getItem('listaProdutos')) || [];
+    listaProdutos.splice(index, 1);
+    localStorage.setItem('listaProdutos', JSON.stringify(listaProdutos));
+
+    // Remover a linha do produto da tabela
+    this.closest('tr').remove();
+
+    // Atualizar a quantidade de produtos na lista
+    document.querySelector('.quanticar').textContent = listaProdutos.length;
+
+    // Verificar se há produtos na lista e exibir a mensagem se estiver vazia
+    if (listaProdutos.length === 0) {
+        document.getElementById('mensagemCarrinhoVazio').style.display = 'block';
+    } else {
+        document.getElementById('mensagemCarrinhoVazio').style.display = 'none';
+    }
+
+    return false; // Para evitar a ação padrão do link
+}
 
 </script>
 </body>
