@@ -60,17 +60,14 @@ option {font-size: 20px; color: black;}
 .divcarrinho {
   width: 70%;
   background-color: white;
-  border-radius: 10px; float: left
+  border-radius: 10px; float: left;
 }
 
 .divcarrinho th, .divcarrinho td {
   padding: 8px;
-  text-align: left;
 }
 
-.divcarrinho th {
-border-bottom: 1px solid grey;
-}
+.divcarrinho th {}
 
 .divcarrinho img {
   width: 40%; max-width: 100px; /* Tamanho máximo da imagem */
@@ -79,37 +76,63 @@ border-bottom: 1px solid grey;
 }
 
 .nome-preco {
-  display: inline-block; width: 55%; margin-left: 5px
+  display: inline-block; width: 50%; margin-left: 5px
 }
 
-.inputtotal {width: 100%}
+.total-label {font-size: 14px}
 
-.inputquantidade {width: 100%}
+.inputtotal {width: 73%; border: 0; font-size: 14px}
 
-.nomeInput {width: 100%; border: 0; font-size: 14px}
+.quantity-wrapper {background-color: #dcdcdc; text-align: center; border-radius: 10px; width: 70%}
 
-.precoInput {width: 100%; font-weight: bold; color: #191919; border: 0}
+.inputquantidade {width: 40%; text-align: center; font-size: 14px; background-color: transparent; border: 0}
+.inputquantidade:focus {outline: none;}
 
-.removerProduto {float: left; margin-top: 40%;}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
 
-.thquantidade {width: 20%}
+.quantity-buttonmais {padding: 0 3px 3px 3px; background-color: transparent ; cursor: pointer; border: 0}
 
-.thtotal {width: 20%}
+.quantity-buttonmenos {padding: 0 5px 3px 5px; background-color: transparent; cursor: pointer; border: 0}
 
-.thproduto {width: 60%}
+.nomeInput {width: 100%; border: 0; font-size: 13px;}
+.nomeInput:focus {outline: none;}
 
-.inforcarrinho {width: 25%; float: right; background-color: white; border-radius: 10px; padding: 10px
+.preco-label {font-weight: bold;}
+
+.precoInput {width: 70%; font-weight: bold; color: #191919; border: 0; font-size: 14px}
+.precoInput:focus {outline: none;}
+
+.tdremover {border-left: 1px solid grey;}
+
+.removerProduto {color: white; padding: 8px; background-color: #191919; border-radius: 10px; font-size: 11px}
+
+.thquantidade {width: 20%;}
+
+.thtotal {width: 25%}
+
+.thproduto {width: 55%}
+
+.linhaproduto {border-top: 1px solid grey}
+
+.inforcarrinho {width: 25%; float: right; background-color: white; border-radius: 10px; padding: 10px;
 }
 
 .h4total {
-  margin-bottom: 10px;
+  margin-bottom: 10px;float: left;
 }
 
 #precoTotal {
-  width: 100px;
-  padding: 5px;
+  width: 50%; float: right; border: 0; font-size: 15px; font-weight: bold
 }
 
+#cliente {width: 100%; border-radius: 10px; padding: 5px}
+
+#enviar {width: 100%; background-color: #191919; margin-top: 20px; color: white; border-radius: 10px}
 
 /*---------------------------------------------------Footer--------------------------------------------------*/
 
@@ -214,6 +237,7 @@ footer {background-color: #191919; color: white;}
         <th class="thproduto">Produto</th>
         <th class="thquantidade">Quantidade</th>
         <th class="thtotal">Total</th>
+        <th class="thvazio">Total</th>
       </tr>
     </thead>
     <tbody>
@@ -222,18 +246,41 @@ footer {background-color: #191919; color: white;}
   </table>
 
   <div class="inforcarrinho">
-    <h4 class="h4total">Total</h4>
-    <input type="text" id="precoTotal" readonly>
+    <h5 class="h4total">Total</h5>
+    <input type="text" name="A pagar" id="precoTotal" readonly>
+    <label for="Cliente">Nome Completo:</label>
+    <input type="text" id="cliente" name="Cliente" required>
 
   <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
-  <input type="submit" value="Submit" />
+  <button type="submit" id="enviar" value="Submit">Enviar</button>
   </div>
 </form>
 </div>
 
 <script>
+// Função para calcular o total
+function calcularTotal() {
+    var total = 0;
+    var linhasProdutos = document.querySelectorAll('.linhaproduto');
+    linhasProdutos.forEach(function(linha) {
+        var precoUnitario = parseFloat(linha.querySelector('.precoInput').value);
+        var quantidade = parseInt(linha.querySelector('.inputquantidade').value);
+        total += precoUnitario * quantidade;
+    });
+    return total.toFixed(2);
+}
+
+// Função para atualizar o campo de entrada do total
+function atualizarCampoTotal() {
+    var precoTotalInput = document.getElementById('precoTotal');
+    precoTotalInput.value = "R$" + calcularTotal();
+}
+
+// Quando a página carregar
 window.onload = function() {
-    // Obter a lista de produtos do armazenamento local
+    var carrinhoTableBody = document.querySelector('.divcarrinho tbody');
+    carrinhoTableBody.innerHTML = ''; // Limpa a tabela antes de exibir os produtos
+
     var listaProdutos = JSON.parse(localStorage.getItem('listaProdutos')) || [];
 
     // Atualizar a quantidade de produtos na lista
@@ -252,6 +299,7 @@ window.onload = function() {
     // Percorrer a lista de produtos e adicionar cada produto ao carrinho
     listaProdutos.forEach(function(produto, index) {
         var newRow = document.createElement('tr');
+        newRow.classList.add('linhaproduto');
 
         // Célula para a imagem, nome e preço
         var infoCell = document.createElement('td');
@@ -266,27 +314,23 @@ window.onload = function() {
 
         var nomeInput = document.createElement('textarea');
         nomeInput.classList.add('nomeInput');
-        nomeInput.name = 'nomeProduto_' + index; // Adicionando o índice ao atributo name
+        nomeInput.name = 'Produto_' + index; // Adicionando o índice ao atributo name
         nomeInput.value = produto.nome;
         nomeInput.readOnly = true;
         nomePrecoDiv.appendChild(nomeInput);
 
+        var precoLabel = document.createElement('span');
+        precoLabel.classList.add('preco-label');
+        precoLabel.textContent = 'R$';
+        nomePrecoDiv.appendChild(precoLabel);
+
         var precoInput = document.createElement('input');
         precoInput.classList.add('precoInput');
-        precoInput.name = 'precoProduto_' + index; // Adicionando o índice ao atributo name
+        precoInput.name = 'Preco_' + index; // Adicionando o índice ao atributo name
         precoInput.type = "text";
         precoInput.value = produto.preco;
         precoInput.readOnly = true;
         nomePrecoDiv.appendChild(precoInput);
-
-        // Botão de Remover
-        var removerLink = document.createElement('a');
-        removerLink.href = "#";
-        removerLink.textContent = 'Remover';
-        removerLink.classList.add('removerProduto');
-        removerLink.dataset.index = index; // Armazenar o índice do produto no link
-        removerLink.onclick = removerProduto; // Associar a função de remoção ao clique
-        nomePrecoDiv.appendChild(removerLink);
 
         infoCell.appendChild(nomePrecoDiv);
 
@@ -294,28 +338,106 @@ window.onload = function() {
 
         // Célula para a quantidade
         var quantidadeCell = document.createElement('td');
+        quantidadeCell.classList.add('quantity-cell');
+
+        // Div para agrupar os botões e o input
+        var quantidadeDiv = document.createElement('div');
+        quantidadeDiv.classList.add('quantity-wrapper');
+
+        // Botão de menos
+        var menosButton = document.createElement('span');
+        menosButton.textContent = '-';
+        menosButton.classList.add('quantity-buttonmenos');
+        menosButton.onclick = function() {
+            var quantidadeInput = quantidadeDiv.querySelector('.inputquantidade');
+            var newQuantity = Math.max(1, parseInt(quantidadeInput.value) - 1);
+            quantidadeInput.value = newQuantity;
+            produto.quantidade = newQuantity; // Atualiza a quantidade no objeto do produto
+            localStorage.setItem('listaProdutos', JSON.stringify(listaProdutos)); // Salva no armazenamento local
+            updateTotal();
+        };
+
+        // Input de quantidade
         var quantidadeInput = document.createElement('input');
         quantidadeInput.classList.add('inputquantidade');
-        quantidadeInput.name = 'quantidadeProduto_' + index; // Adicionando o índice ao atributo name
-        quantidadeInput.type = "text";
-        quantidadeCell.appendChild(quantidadeInput);
+        quantidadeInput.name = 'Quantidade_' + index; // Usar um identificador único para o produto
+        quantidadeInput.type = "number";
+        quantidadeInput.min = "1"; // Definindo o valor mínimo como 1
+        quantidadeInput.value = produto.quantidade || 1; // Definindo a quantidade inicial como 1
+        quantidadeInput.addEventListener('input', function() {
+            produto.quantidade = parseInt(quantidadeInput.value); // Atualiza a quantidade no objeto do produto
+            localStorage.setItem('listaProdutos', JSON.stringify(listaProdutos)); // Salva no armazenamento local
+            atualizarCampoTotal();
+        });
+
+        // Botão de mais
+        var maisButton = document.createElement('span');
+        maisButton.textContent = '+';
+        maisButton.classList.add('quantity-buttonmais');
+        maisButton.onclick = function() {
+            var quantidadeInput = quantidadeDiv.querySelector('.inputquantidade');
+            var newQuantity = parseInt(quantidadeInput.value) + 1;
+            quantidadeInput.value = newQuantity;
+            produto.quantidade = newQuantity; // Atualiza a quantidade no objeto do produto
+            localStorage.setItem('listaProdutos', JSON.stringify(listaProdutos)); // Salva no armazenamento local
+            updateTotal();
+        };
+
+        // Adicionando os elementos à div de quantidade
+        quantidadeDiv.appendChild(menosButton);
+        quantidadeDiv.appendChild(quantidadeInput);
+        quantidadeDiv.appendChild(maisButton);
+
+        quantidadeCell.appendChild(quantidadeDiv);
         newRow.appendChild(quantidadeCell);
+
+        // Função para atualizar o total
+        function updateTotal() {
+            var totalInput = newRow.querySelector('.inputtotal');
+            var precoUnitario = parseFloat(precoInput.value);
+            var quantidade = parseInt(quantidadeInput.value);
+            totalInput.value = (precoUnitario * quantidade).toFixed(2); // Calcula o total
+            atualizarCampoTotal(); // Atualiza o campo de total geral
+        }
 
         // Célula para o total
         var totalCell = document.createElement('td');
+
+        var totalLabel = document.createElement('span');
+        totalLabel.classList.add('total-label');
+        totalLabel.textContent = 'R$';
+        totalCell.appendChild(totalLabel);
+
         var totalInput = document.createElement('input');
         totalInput.classList.add('inputtotal');
-        totalInput.name = 'totalProduto_' + index; // Adicionando o índice ao atributo name
+        totalInput.name = 'Total_' + index; // Adicionando o índice ao atributo name
         totalInput.type = "text";
         totalInput.readOnly = true;
+        totalInput.value = (parseFloat(produto.preco) * parseFloat(quantidadeInput.value)).toFixed(2); // Calcula o total
         totalCell.appendChild(totalInput);
-        newRow.appendChild(totalCell);
+    	newRow.appendChild(totalCell);
+    
 
-        // Adicionar a nova linha à tabela do carrinho
-        carrinhoTableBody.appendChild(newRow);
-    });
-};
+    // Célula para o botão de remover
+    var removerCell = document.createElement('td');
+    removerCell.classList.add('tdremover');
+    var removerLink = document.createElement('a');
+    removerLink.href = "#";
+    removerLink.textContent = 'Remover';
+    removerLink.classList.add('removerProduto');
+    removerLink.dataset.index = index; // Armazenar o índice do produto no link
+    removerLink.onclick = removerProduto; // Associar a função de remoção ao clique
+    removerCell.appendChild(removerLink);
+    newRow.appendChild(removerCell);
 
+    // Adicionar a nova linha à tabela do carrinho
+    carrinhoTableBody.appendChild(newRow);
+
+    // Atualizar o total
+    updateTotal();
+});
+
+// Função para remover um produto do carrinho
 function removerProduto() {
     // Obter o índice do produto a ser removido do atributo data-index do link
     var index = this.dataset.index;
@@ -334,12 +456,21 @@ function removerProduto() {
     // Verificar se há produtos na lista e exibir a mensagem se estiver vazia
     if (listaProdutos.length === 0) {
         document.getElementById('mensagemCarrinhoVazio').style.display = 'block';
+        document.getElementById('divglobal').style.display = 'none';
+        document.getElementById('txcarrinho').style.display = 'none';     
     } else {
         document.getElementById('mensagemCarrinhoVazio').style.display = 'none';
     }
 
+    // Atualizar o total após a remoção
+    atualizarCampoTotal();
+
     return false; // Para evitar a ação padrão do link
 }
+
+// Atualizar o total inicialmente ao carregar a página
+atualizarCampoTotal();
+};
 
 </script>
 </body>
