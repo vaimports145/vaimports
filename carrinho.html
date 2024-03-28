@@ -138,7 +138,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 #cliente {width: 100%; border-radius: 10px; padding: 5px}
 
-#enviar {width: 100%; background-color: #191919; margin-top: 20px; color: white; border-radius: 10px}
+#enviar {width: 100%; background-color: #191919; margin-top: 20px; color: white; border-radius: 10px; padding: 10px; margin-bottom: 10px}
 
 /*---------------------------------------------------Footer--------------------------------------------------*/
 
@@ -178,6 +178,21 @@ footer {background-color: #191919; color: white;}
   .inforproduto-principal {width: 100%; height: 100%; margin-top: 5px; box-shadow: 0 0 0; margin: 0; border-radius: 0; padding: 30px}
   .hrdescricao {float: left; width: 94%; display: block; border: 10px solid grey; margin-bottom: 40px}
   .descricao {width: 100%; height: 100%; box-shadow: 0 0 0; text-align: center; margin: 0; border-radius: 0; margin-top: 10px; margin-bottom: 50px}
+  #txcarrinho {margin-top: 40px; margin-left:3%}
+  #divglobal {width: 100%; margin: 0}
+  .ths {display: none}
+  .linhaproduto {border-top: 0; border-bottom: 1px solid #dcdcdc;}
+  .divcarrinho img {margin-left: 5%;}
+  .divcarrinho {width: 100%; margin-bottom: 10px; border-radius: 0; margin-top: 30px;}
+  .celulaproduto {width: 60%;}
+  .quantity-cell {width: 100%; display: block; margin-top: 10px;}
+  .celulatotal {width: 100%; display: block; margin-top: -15px}
+  .tdremover {width: 10%; border: 0; margin: 0; display: block; margin-top: -15px}
+  .removerProduto {color: black; padding: 0; background-color: transparent; border-radius: 0; font-size: 11px;}
+  .inforcarrinho {width: 100%; margin-bottom: 50px; border-radius: 0;}
+  .tabletotal {width: 100%}
+  #precoTotal {text-align: right; border: 0; font-size: 15px; font-weight: bold; margin-top: -12px}
+  .cliente {float: left}
 </style>
 </head>
 <body>
@@ -239,7 +254,7 @@ footer {background-color: #191919; color: white;}
 <form action="https://api.sheetmonkey.io/form/uWEAGr6vo7kq8QBa6qsEsj" method="post">
   <table class="divcarrinho">
     <thead>
-      <tr>
+      <tr class="ths">
         <th class="thproduto">Produto</th>
         <th class="thquantidade">Quantidade</th>
         <th class="thtotal">Total</th>
@@ -252,9 +267,11 @@ footer {background-color: #191919; color: white;}
   </table>
 
   <div class="inforcarrinho">
-    <h5 class="h4total">Total</h5>
-    <input type="text" name="A pagar" id="precoTotal" readonly>
-    <label for="Cliente">Nome Completo:</label>
+  <table class="tabletotal">
+    <th><h5 class="h4total">Total</h5></th>
+    <th><input type="text" name="A pagar" id="precoTotal" readonly></th>
+  </table>
+    <label class="cliente" for="Cliente">Nome Completo:</label>
     <input type="text" id="cliente" name="Cliente" required>
 
   <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
@@ -336,6 +353,7 @@ window.onload = function() {
 
         // Célula para a imagem, nome e preço
         var infoCell = document.createElement('td');
+        infoCell.classList.add('celulaproduto');
 
         var img = document.createElement('img');
         img.src = produto.imagem;
@@ -435,6 +453,7 @@ window.onload = function() {
 
         // Célula para o total
         var totalCell = document.createElement('td');
+        totalCell.classList.add('celulatotal');
 
         var totalLabel = document.createElement('span');
         totalLabel.classList.add('total-label');
