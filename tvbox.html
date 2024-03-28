@@ -307,6 +307,10 @@ footer {background-color: #191919; color: white;}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
 <script>
+window.onload = function() {
+	var listaProdutos = JSON.parse(localStorage.getItem('listaProdutos')) || [];
+    document.querySelector('.quanticar').textContent = listaProdutos.length;
+}
 
 /////////////////////////////////////////// Rolagem no celular ////////////////////////////////////////////////////
 
@@ -339,20 +343,7 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   var imagens = document.getElementById('slides');
-}
-
-/////////////////////////////////////////// INPUT QUANTIDADE ////////////////////////////////////////////////////
-
-function incrementarQuantidade() {
-    var quantidadeInput = document.getElementById("quantidade");
-    quantidadeInput.stepUp();
-  }
-
-  function decrementarQuantidade() {
-    var quantidadeInput = document.getElementById("quantidade");
-    quantidadeInput.stepDown();
-  }
-  
+} 
   
 window.addEventListener('scroll', function() {
     if (window.innerWidth >= 700) {
@@ -413,7 +404,10 @@ function salvarDados() {
     localStorage.setItem('listaProdutos', JSON.stringify(listaProdutos));
 
     alert('Produto adicionado ao carrinho!');
+    
+    $('.quanticar').text(listaProdutos.length);
 }
+
 </script>
 
 </body>
