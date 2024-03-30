@@ -44,23 +44,26 @@ option {font-size: 20px; color: black;}
 .propaganda {max-width: 200px; margin-right: -20px; margin-bottom: -1px;}
 .hidden {display: none;}
 
+.txeprodutos {background-color: white; border-radius: 20px; margin: 5%;}
+
+.voltar {width: 50px; border-radius: 50%; margin-top: 15px; margin-left: 10px}
+
+.linha {border: 2px solid black}
+
+#produtopesquisado{margin-top:20px; margin-left: 10px}
+
 
 /*---------------------------------------------------Produtos--------------------------------------------------*/
 
-.ofertas {width: 90%; margin-left: 5%; margin-bottom: 20px;}
 
-.t1 {float: left; border-bottom: 5px solid #191919;}
-.t2 {float: right;}
-#produtos {display: flex; flex-wrap: wrap; margin-left: 5%; margin-right: 5%; padding-bottom: 20px;}
+#produtos {display: flex; flex-wrap: wrap; padding-bottom: 20px; background-color: white; border-radius: 20px;}
 #produtos a {text-decoration: none; color: black;}
 .produto:hover {background-color: #dcdcdc;}
-.produto {flex: 0 0 calc(20% - 20px); margin: 10px; background-color: #ffffff; padding: 5px; box-sizing: border-box; box-shadow: 1px 2px 10px black; border-radius: 10px; width: 100%; display: block;}
+.produto {flex: 0 0 calc(20% - 20px); margin: 10px; background-color: #ffffff; padding: 5px; box-sizing: border-box; box-shadow: 1px 1px 10px black; border-radius: 10px; width: 100%; display: block;}
 .imgproduto {width: 100%;}
 .nomeproduto {margin-bottom: 0px; text-align: justify}
 .precoproduto {margin-top: 10px; color: #191919;}
-        .hide {
-            display: none;
-        }
+.hide {display: none;}
 
 /*---------------------------------------------------Footer--------------------------------------------------*/
 
@@ -94,6 +97,7 @@ footer {background-color: #191919; color: white;}
   .propaganda {display: none;}
   .hidden {display: none;}
   .produto {flex: 0 0 calc(50% - 20px);}
+  .voltar {width: 40px}
 }
 </style>
 </head>
@@ -147,7 +151,16 @@ footer {background-color: #191919; color: white;}
   </thead>
 </table>
 </header>
-<!____________________________________CATALÓGO_______________________________________________________>
+<!--____________________________________CATALÓGO_______________________________________________________-->
+
+<div class="txeprodutos">
+
+<table>
+<td><img class="voltar" src="https://i.postimg.cc/MZM97xvY/VoltarVa.png" alt="voltar" onclick="goBack()"></td>
+<td><h4 id="produtopesquisado"></h4></td>
+</table>
+
+<hr class="linha">
 
 <div id="produtos">
 
@@ -211,7 +224,7 @@ footer {background-color: #191919; color: white;}
   
   <div class="produto" data-name="Faca Punhal Adaga Tática" data-category="esportes"><a href="htmlproduto160.html"><img class="imgproduto" src="https://i.postimg.cc/g0vBkSGX/faca.png"><p class="nomeproduto" style="text-align: justify">Faca Punhal Adaga Tática</p><h4 class="precoproduto">R$50,00</h4></a></div>
 </div>
-
+</div>
 <!--_____________________________________Footer____________________________________________________-->
 
 <footer>
@@ -252,6 +265,7 @@ function getTermoBusca() {
 function exibirResultados() {
   var termoBusca = getTermoBusca();
   if (termoBusca) {
+  document.getElementById('produtopesquisado').textContent = 'Resultados para: ' + decodeURIComponent(termoBusca);
     // Filtrar os produtos com base no termo de busca
     var produtos = document.querySelectorAll('.produto');
     produtos.forEach(function(produto) {
@@ -276,6 +290,12 @@ function buscar() {
     window.location.href = 'produtos.html?termo=' + encodeURIComponent(termoBusca);
   }
 }
+
+function goBack() {
+  window.history.back();
+}
+
+
 // Chama a função para exibir os resultados da busca quando a página carrega
 window.onload = exibirResultados;
 </script>
