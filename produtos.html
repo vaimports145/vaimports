@@ -277,6 +277,7 @@ function exibirResultados() {
       var nomeProduto = produto.getAttribute('data-name').toLowerCase();
       if (nomeProduto.includes(termoBusca.toLowerCase())) {
         produto.style.display = 'block';
+      }else {produto.style.display ='none';
       }
     });
     // Exibir mensagem se nenhum produto corresponder à busca
