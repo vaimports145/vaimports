@@ -179,7 +179,7 @@ footer {background-color: #191919; color: white;}
     <td><a href="index.html"><img class="logo" src="https://i.postimg.cc/7hXhdRCS/Logo-5000-x-3000-px.png" alt="logo"></a></td>
     <td><div class="cxdebusca">
     <input class="form-control inputmenu" type="text" id="campopesquisa" placeholder="Buscar..." type="text">
-    <img class="lupa" src="https://i.postimg.cc/QxXJxRyD/Lupa.png" alt="lupa">
+    <img class="lupa" src="https://i.postimg.cc/QxXJxRyD/Lupa.png" alt="lupa" onclick="buscar()">
     </div>
     <nav class="navbar opcoes">
       <a class="op" href="https://api.whatsapp.com/send?phone=5593991755419">WhatsApp</a> 
@@ -411,7 +411,13 @@ function salvarDados() {
     
     $('.quanticar').text(listaProdutos.length);
 }
-
+function buscar() {
+  var termoBusca = document.getElementById('campopesquisa').value.trim();
+  if (termoBusca !== '') {
+    // Redireciona para a página de destino com o termo de busca como parâmetro na URL
+    window.location.href = 'produtos.html?termo=' + encodeURIComponent(termoBusca);
+  }
+}
 </script>
 
 </body>
