@@ -53,3 +53,16 @@ function categorias() {
     var textoCategoria = elementoCategoria.innerText;
     window.location.href = 'produtos.html?termo=' + encodeURIComponent(textoCategoria);
 }
+
+function categoriastopo() {
+  var selecionado = document.getElementById("category").value;
+  if (selecionado !== "") {
+    window.location.href = 'produtos.html?termo=' + selecionado;
+  }
+}
+
+function categoriastopo(categoria) {
+  if (categoria !== "") {
+    window.location.href = 'produtos.html?termo=' + categoria;
+  }
+}
