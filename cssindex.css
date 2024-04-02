@@ -26,7 +26,7 @@ option {font-size: 20px; color: black;}
 
 .ofertas {width: 90%; margin-left: 5%; margin-bottom: 20px;}
 .t1 {float: left; border-bottom: 5px solid #191919;}
-.t2 {float: right;}
+.t2 {float: right; color: black}
 .t2 a {text-decoration: none; color: black}
 #produtos {display: flex; flex-wrap: nowrap; margin-left: 5%; margin-right: 5%; padding-bottom: 20px;}
 #produtos a {text-decoration: none; color: black;}
