@@ -55,9 +55,10 @@ function categorias() {
 }
 
 function categoriastopo() {
-  var selecionado = document.getElementById("category").value;
-  if (selecionado !== "") {
-    window.location.href = 'produtos.html?termo=' + encodeURIComponent(selecionado);
+  var selecionado = document.getElementById("category");
+  var textoSelecionado = selecionado.options[selecionado.selectedIndex].text;
+  if (textoSelecionado.trim() !== "") {
+    window.location.href = 'produtos.html?termo=' + encodeURIComponent(textoSelecionado);
   }
 }
 
