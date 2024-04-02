@@ -6,7 +6,7 @@ body {padding-top: 115px; background-color: #E5D3C0; margin: 0; display: flex; f
 .cxdebusca {width: 100%; border-radius: 20px; height: 50px; font-weight: bold; background-color: white; margin-top: 15px;}
 .inputmenu {float: left; width: 80%; padding: 15px; border-radius: 20px; height: 50px; font-weight: bold; border: none; background-color:transparent; color: #000;}
 .inputmenu:focus {box-shadow: 0 0 0 0;}
-.lupa {float: right; width: 30px; margin: 10px;}
+.lupa {float: right; width: 30px; margin: 10px; cursor: pointer}
 .op {font-size: 15px; text-decoration:none; color: #ffffff; font-weight: bold;}
 .op:hover {color: grey;}
 .carrinho {width: 50px; margin-top:65px; text-align: left;}
@@ -27,6 +27,7 @@ option {font-size: 20px; color: black;}
 .ofertas {width: 90%; margin-left: 5%; margin-bottom: 20px;}
 .t1 {float: left; border-bottom: 5px solid #191919;}
 .t2 {float: right;}
+.t2 a {text-decoration: none; color: grey}
 #produtos {display: flex; flex-wrap: nowrap; margin-left: 5%; margin-right: 5%; padding-bottom: 20px;}
 #produtos a {text-decoration: none; color: black;}
 .produto:hover {background-color: #dcdcdc;}
