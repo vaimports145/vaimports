@@ -13,7 +13,7 @@
 <body>
 <header>
 <table class="fundo">
-  <thead>
+<thead>
   
 <!---------------Menu-------------->
 
@@ -27,11 +27,11 @@
     <hr>
     <div class="ml-3 text-white"><h5>Categorias:</h5></div>
     <!-- Outra maneira de implementar categorias -->
-    <div class="category" onclick="categoriastopo('')">Todos</div><hr>
-    <div class="category" onclick="categoriastopo('sons')">Sons</div><hr>
-    <div class="category" onclick="categoriastopo('eletronicos')">Eletrônicos</div><hr>
-    <div class="category" onclick="categoriastopo('fones')">Fones</div><hr>
-    <div class="category" onclick="categoriastopo('smartphones')">Smartphones</div>
+    <div class="category" onclick="categoriasmenu('todos')">Todos</div><hr>
+    <div class="category" onclick="categoriasmenu('sons')">Sons</div><hr>
+    <div class="category" onclick="categoriasmenu('eletronicos')">Eletrônicos</div><hr>
+    <div class="category" onclick="categoriasmenu('fones')">Fones</div><hr>
+    <div class="category" onclick="categoriasmenu('smartphones')">Smartphones</div>
 </div>
 <span onclick="openNav()"><img class="menuicon" src="https://i.postimg.cc/1Rq9KB0N/menu.png" alt="menu"></span></td>
       
@@ -48,7 +48,7 @@
 		<a class="op" href="https://www.instagram.com/va_imports__/">Intagram</a>
 		<select class="w-25" name="select" id="category" onchange="categoriastopo()">
             <option hidden value= 0 >Categorias</option>
-            <option value="">Tudo</option>
+            <option value="tudo">Tudo</option>
             <option value="sons">Sons</option>
             <option value="eletronicos">Eletrônicos</option>
             <option value="fones">Fones</option>
@@ -79,27 +79,122 @@
 
 <div id="produtos">
 
-<div class="produto" data-name="tv box (Converta Sua TV Em Smart)">
+<!--________________________________________Produto 1________________________________________-->
 
-<!--__________________________________Url da página do produto_________________________________________-->
+<div class="produto" data-name="TV Box (Converta Sua TV em smart) tvbox tv box tudo todos todas eletronicos Eletrônicos 200">
+
+<!---------------URL-------------->
 
 <a href="tvbox.html">
 
-<!--____________________________________Imagem do produto_______________________________________________________-->
+<!---------------Imagem do produto-------------->
 
 <img class="imgproduto" src="https://i.postimg.cc/XY2mT4MS/tvbox1.png">
 
-<!--____________________________________Nome do produto_______________________________________________________-->
+<!---------------Nome do produto-------------->
 
 <p class="nomeproduto">TV Box (Converta Sua TV...</p>
 
-<!--____________________________________Preço do produto_______________________________________________________-->
+<!---------------Preço do produto-------------->
 
 <h4 class="precoproduto">R$200,00</h4>
+
 </a>
 </div>
     
-    	<div class="produto" data-name="Máquina De Cortar Cabelo Leon GTS"><a href="htmlproduto28.html"><img class="imgproduto" src="https://i.postimg.cc/8s8fkj7F/cortador1.png"><p class="nomeproduto" style="text-align: justify">Máquina De Cortar Cabel...</p><h4 class="precoproduto">R$70,00</h4></a></div>
+<!--________________________________________Produto 2________________________________________-->
+
+<div class="produto" data-name="Projetor Led Source 1080 Wifi 5g Portátil Compátivel Ios Android tudo todos todas eletronicos Eletrônicos 500">
+
+<!---------------URL-------------->
+
+<a href="projetor_hy300.html">
+
+<!---------------Imagem do produto-------------->
+
+<img class="imgproduto" src="https://i.postimg.cc/pTt2MBJL/1.png">
+
+<!---------------Nome do produto-------------->
+
+<p class="nomeproduto">Projetor Led Source Fr...</p>
+
+<!---------------Preço do produto-------------->
+
+<h4 class="precoproduto">R$500,00</h4>
+
+</a>
+</div>
+
+<!--________________________________________Produto 3________________________________________-->
+
+<div class="produto" data-name="Vídeo Game Retro 4k 200 tudo todos todas eletronicos Eletrônicos">
+
+<!---------------URL-------------->
+
+<a href="game_retro.html">
+
+<!---------------Imagem do produto-------------->
+
+<img class="imgproduto" src="https://i.postimg.cc/Y0vk1yp8/1.png">
+
+<!---------------Nome do produto-------------->
+
+<p class="nomeproduto">Vídeo Game Retro 4k...</p>
+
+<!---------------Preço do produto-------------->
+
+<h4 class="precoproduto">R$200,00</h4>
+
+</a>
+</div>
+
+<!--________________________________________Produto 4________________________________________-->
+
+<div class="produto" data-name="Carregador Portátil Leon Gts GTS 100 tudo todos todas eletronicos Eletrônicos">
+
+<!---------------URL-------------->
+
+<a href="carregador_portatil.html">
+
+<!---------------Imagem do produto-------------->
+
+<img class="imgproduto" src="https://i.postimg.cc/90QST4Bh/1.png">
+
+<!---------------Nome do produto-------------->
+
+<p class="nomeproduto">Carregador Portátil Po...</p>
+
+<!---------------Preço do produto-------------->
+
+<h4 class="precoproduto">R$100,00</h4>
+
+</a>
+</div>
+
+<!--________________________________________Produto 5________________________________________-->
+
+<div class="produto" data-name="Câmera Wi-Fi Jortan Branco tudo todos todas camera 110 branca eletronicos Eletrônicos">
+
+<!---------------URL-------------->
+
+<a href="camera_jortan.html">
+
+<!---------------Imagem do produto-------------->
+
+<img class="imgproduto" src="https://i.postimg.cc/RZdPrQDj/1.png">
+
+<!---------------Nome do produto-------------->
+
+<p class="nomeproduto">Câmera Wi-Fi Jortan Br...</p>
+
+<!---------------Preço do produto-------------->
+
+<h4 class="precoproduto">R$R$110,00</h4>
+
+</a>
+</div>
+    
+<div class="produto" data-name="Máquina De Cortar Cabelo Leon GTS"><a href="htmlproduto28.html"><img class="imgproduto" src="https://i.postimg.cc/8s8fkj7F/cortador1.png"><p class="nomeproduto" style="text-align: justify">Máquina De Cortar Cabel...</p><h4 class="precoproduto">R$70,00</h4></a></div>
     
     	<div class="produto" data-name="Fone De Ouvido A Fio FX"><a href="htmlproduto29.html"><img class="imgproduto" src="https://i.postimg.cc/1RgrcFrZ/fonefxs8.png"><p class="nomeproduto" style="text-align: justify">Fone De Ouvido A Fio FX...</p><h4 class="precoproduto">R$20,00</h4></a></div>
     
@@ -158,92 +253,6 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
-<script>
-//__________Menu__________//
-
-function openNav() {
- 	document.getElementById("mySidenav").style.width = "50%";
- 	var imagens = document.getElementById('slides');
-}
-function closeNav() {
-	document.getElementById("mySidenav").style.width = "0";
- 	var imagens = document.getElementById('slides');
-}
-
-//__________Buscar produtos__________//
-
-document.getElementById('campopesquisa').addEventListener('keyup', function(event) {
-	if (event.keyCode === 13) {
-		buscar();
-    }
-});
-
-function categoriastopo() {
-  var selecionado = document.getElementById("category").value;
-  if (selecionado !== "") {
-    window.location.href = 'produtos.html?termo=' + selecionado;
-  }
-}
-
-function categoriastopo(categoria) {
-  if (categoria !== "") {
-    window.location.href = 'produtos.html?termo=' + categoria;
-  }
-}
-	
-    
-function buscar() {
-	var termoBusca = document.getElementById('campopesquisa').value.trim();
-	if (termoBusca !== '') {
-    	window.location.href = 'produtos.html?termo=' + encodeURIComponent(termoBusca);
-  	}
-}
-
-  
-// Função para recuperar o termo de busca da URL
-function getTermoBusca() {
-  var urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('termo');
-}
-
-// Função para exibir os resultados da busca
-function exibirResultados() {
-  var termoBusca = getTermoBusca();
-  if (termoBusca) {
-  document.getElementById('produtopesquisado').textContent = 'Resultados para: ' + decodeURIComponent(termoBusca);
-    // Filtrar os produtos com base no termo de busca
-    var produtos = document.querySelectorAll('.produto');
-    produtos.forEach(function(produto) {
-      var nomeProduto = produto.getAttribute('data-name').toLowerCase();
-      if (nomeProduto.includes(termoBusca.toLowerCase())) {
-        produto.style.display = 'block';
-      }else {produto.style.display ='none';
-      }
-    });
-    // Exibir mensagem se nenhum produto corresponder à busca
-    var resultadosDiv = document.getElementById('produtos');
-    if (resultadosDiv.innerHTML === '') {
-      resultadosDiv.textContent = 'Nenhum produto encontrado para: ' + decodeURIComponent(termoBusca);
-    }
-  }
-}
-
-function buscar() {
-  var termoBusca = document.getElementById('campopesquisa').value.trim();
-  if (termoBusca !== '') {
-    // Redireciona para a página de destino com o termo de busca como parâmetro na URL
-    window.location.href = 'produtos.html?termo=' + encodeURIComponent(termoBusca);
-  }
-}
-
-function goBack() {
-  window.history.back();
-}
-
-
-// Chama a função para exibir os resultados da busca quando a página carrega
-window.onload = exibirResultados;
-</script>
-
+<script type="text/javascript" src="./jsprodutos.js"></script>
 </body>
 </html>
