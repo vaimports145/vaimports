@@ -1,0 +1,71 @@
+/*---------------------------------------------------Principal--------------------------------------------------*/
+
+body {padding-top: 115px; background-color: #E5D3C0; margin: 0; display: flex; flex-direction: column; min-height: 100vh;}
+.fundo {background-color: #191919; position: fixed; width: 100%; top:0; text-align: center; z-index: 2;}
+.logo {max-width: 150px;}
+.cxdebusca {width: 100%; border-radius: 20px; height: 50px; font-weight: bold; background-color: white; margin-top: 15px;}
+.inputmenu {float: left; width: 80%; padding: 15px; border-radius: 20px; height: 50px; font-weight: bold; border: none; background-color:transparent; color: #000;}
+.inputmenu:focus {box-shadow: 0 0 0 0;}
+.lupa {float: right; width: 30px; margin: 10px;}
+.op {font-size: 15px; text-decoration:none; color: #ffffff; font-weight: bold;}
+.op:hover {color: grey;}
+.carrinho {width: 50px; margin-top:65px; text-align: left;}
+.quanticar {position: absolute; margin-top: 22px; margin-left: -4%; font-size: 15px; font-weight: bold;}
+select {background-color: transparent; border: none; color: #ffffff; font-size: 15px; font-weight: bold;}
+select:hover {color: grey;}
+.selected {color: grey;}
+option {font-size: 20px; color: black;}
+.menuicon {display: none;}
+.sidenav {display: none;}
+.propaganda {max-width: 200px; margin-right: -20px; margin-bottom: -1px;}
+.hidden {display: none;}
+.txeprodutos {background-color: white; border-radius: 20px; margin: 5%;}
+.voltar {width: 50px; border-radius: 50%; margin-top: 15px; margin-left: 10px}
+.linha {border: 2px solid black}
+#produtopesquisado{margin-top:20px; margin-left: 10px}
+
+/*---------------------------------------------------Produtos--------------------------------------------------*/
+
+#produtos {display: flex; flex-wrap: wrap; padding-bottom: 20px; background-color: white; border-radius: 20px;}
+#produtos a {text-decoration: none; color: black;}
+.produto:hover {background-color: #dcdcdc;}
+.produto {flex: 0 0 calc(20% - 20px); margin: 10px; background-color: #ffffff; padding: 5px; box-sizing: border-box; box-shadow: 1px 1px 10px black; border-radius: 10px; width: 100%; display: block;}
+.imgproduto {width: 100%;}
+.nomeproduto {margin-bottom: 0px; text-align: justify}
+.precoproduto {margin-top: 10px; color: #191919;}
+.hide {display: none;}
+
+/*---------------------------------------------------Footer--------------------------------------------------*/
+
+.footer1 {width: 100%; height: 50px; background-image: linear-gradient(to bottom, #dcdcdc, #191919);}
+footer {background-color: #191919; color: white;}
+.logofooter {width: 15%; margin: 5%;}
+.pfooter {margin-left: 5%;}
+.copy {text-align: center; margin-top: 50px; font-size: 12px;}
+
+/*---------------------------------------------------Celular--------------------------------------------------*/
+
+@media only screen and (max-width: 700px) {
+  body {padding-top: 80px;}
+  .logo {max-width: 60px; margin: 20px;}
+  .cxdebusca {height: 40px;}
+  .inputmenu {width: 60%; height: 40px;}
+  .lupa {width: 20px;}
+  .op {display: none;}
+  .carrinho {width: 40px; margin-top: 1px; margin: 20px;}
+  .quanticar {margin-top: -11px; margin-left: -9%;}
+  select {display: none;}
+  .category {margin-left: 15px; color: white;}
+  .category:hover {color: grey}
+  .selected {color: grey;}
+  option {font-size: 15px; color: black;}
+  .menuicon {display: block; width: 40px; margin-left: 15px;}
+  .sidenav {display: block; height: 100%; width: 0; position: fixed; z-index: 1; top: 0; left: 0; background-color: #191919; overflow-x: hidden; padding-top: 40px; transition: 0.5s; border-right: 1px solid white; text-align: left;}
+  .sidenav a {text-decoration: none; font-size: 15px; color: white; display: block; transition: 0.2s;}
+  .sidenav a:hover {color: grey;}
+  .sidenav .closebtn {position: absolute; top: 0; right: 10px; font-size: 36px;}
+  .propaganda {display: none;}
+  .hidden {display: none;}
+  .produto {flex: 0 0 calc(50% - 20px);}
+  .voltar {width: 40px}
+}
