@@ -216,21 +216,21 @@
 			<p class="nomecategoria">Sons</p>
 		</div>
 
-		<div class="tudojunto">
+		<div class="tudojunto" onclick="categorias()">
 			<div class="bolapreta">
 				<img class="imgcategoria" src="https://i.postimg.cc/yN6TsHZZ/1.png" alt="eletronicos">
 			</div>
 			<p class="nomecategoria">Eletrônicos</p>
 		</div>
 
-		<div class="tudojunto">
+		<div class="tudojunto" onclick="categorias()">
 			<div class="bolapreta">
 				<img class="imgcategoria" src="https://i.postimg.cc/ydthm3rm/3.png" alt="fones">
 			</div>
 			<p class="nomecategoria">Fones</p>
 		</div>
 
-		<div class="tudojunto">
+		<div class="tudojunto" onclick="categorias()">
 			<div class="bolapreta">
 				<img class="imgcategoria" src="https://i.postimg.cc/4yc6B4rr/4.png" alt="smartphones">
 			</div>
@@ -241,31 +241,31 @@
 	</div>
 </div>
 
-<!--_______________________________________Quem somos__________________________________________________-->
+<!---------------Quem somos-------------->
 
 <div class="quemsomos1"></div>
 <div class="quemsomos">
-<table class="ofertas">
-<td><h4 class="t1 mt-4">Quem somos</h4></td> 
-</table>
+	<table class="ofertas">
+		<td><h4 class="t1 mt-4">Quem somos</h4></td> 
+	</table>
 
-<div class="container">
-    <img class="imgquemsomos" src="https://i.postimg.cc/B65p0BSm/VA-2.png" alt="quemsomos">
-    <img class="selo" src="https://i.postimg.cc/przg36yy/figuras-categorias.png" alt="selo">
-    <div class="txquemsomos">
-      <p>Loja física e virtual de importados localizada em Santarém que se destaca pela diversidade de produtos exclusivos e de alta qualidade.
-      <br><br>
-      Com uma ampla gama de artigos importados, nossa loja oferece desde eletrônicos modernos e gadgets inovadores até itens de decoração sofisticados e produtos de cuidados pessoais de marcas renomadas.
-      <br><br>
-      Na nossa loja física em Santarém, os clientes podem desfrutar de um ambiente acolhedor e atendimento personalizado, enquanto na nossa loja virtual, garantimos uma experiência de compra segura e conveniente para clientes de todo a região.
-      <br><br>
-      Seja para presentear alguém especial ou para se mimar com um mimo exclusivo, na nossa loja de importados você certamente encontrará algo que irá encantar você.</p>
-    </div>
-  </div>
+	<div class="container">
+    	<img class="imgquemsomos" src="https://i.postimg.cc/B65p0BSm/VA-2.png" alt="quemsomos">
+    	<img class="selo" src="https://i.postimg.cc/przg36yy/figuras-categorias.png" alt="selo">
+    	<div class="txquemsomos">
+      	<p>Loja física e virtual de importados localizada em Santarém que se destaca pela diversidade de produtos exclusivos e de alta qualidade.
+      	<br><br>
+      	Com uma ampla gama de artigos importados, nossa loja oferece desde eletrônicos modernos e gadgets inovadores até itens de decoração sofisticados e produtos de cuidados pessoais de marcas renomadas.
+      	<br><br>
+      	Na nossa loja física em Santarém, os clientes podem desfrutar de um ambiente acolhedor e atendimento personalizado, enquanto na nossa loja virtual, garantimos uma experiência de compra segura e conveniente para clientes de todo a região.
+      	<br><br>
+      	Seja para presentear alguém especial ou para se mimar com um mimo exclusivo, na nossa loja de importados você certamente encontrará algo que irá encantar você.</p>
+	</div>
+</div>
 </div>
 </main>
 
-<!--_____________________________________Footer____________________________________________________-->
+<!---------------Footer-------------->
 
 <footer>
 <div class="footer1"></div>
@@ -279,65 +279,10 @@
 </div>
 </footer>
 
-<!--______________________________________JavaScript___________________________________________________-->
+<!---------------Javascript-------------->
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
-<script>
-
-/////////////////////////////////////////// Rolagem no celular ////////////////////////////////////////////////////
-
-  $(document).ready(function(){
-    if ($(window).width() < 700) {
-      $("#produtos").on("swipeleft", function(){
-        $(this).animate({scrollLeft: '+=' + $(window).width()}, 'slow');
-      });
-      
-      $("#produtos").on("swiperight", function(){
-        $(this).animate({scrollLeft: '-=' + $(window).width()}, 'slow');
-      });
-      
-      $("#tabelabolas").on("swipeleft", function(){
-        $(this).animate({scrollLeft: '+=' + $(window).width()}, 'slow');
-      });
-      
-      $("#tabelabolas").on("swiperight", function(){
-        $(this).animate({scrollLeft: '-=' + $(window).width()}, 'slow');
-      });
-    }
-  });
-
-/////////////////////////////////////////// MENU CELULAR ////////////////////////////////////////////////////
-
-function openNav() {
-  document.getElementById("mySidenav").style.width = "50%";
-  var imagens = document.getElementById('slides');
-}
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  var imagens = document.getElementById('slides');
-}
-
-    document.getElementById('campopesquisa').addEventListener('keyup', function(event) {
-      // Verifica se a tecla pressionada é o Enter (código 13)
-      if (event.keyCode === 13) {
-        // Chama a função buscar()
-        buscar();
-      }
-    });
-    
-  function buscar() {
-  var termoBusca = document.getElementById('campopesquisa').value.trim();
-  if (termoBusca !== '') {
-    // Redireciona para a página de destino com o termo de busca como parâmetro na URL
-    window.location.href = 'produtos.html?termo=' + encodeURIComponent(termoBusca);
-  }
-}
-
-function categorias(){
-window.location.href = 'produtos.html?termo=sons';
-}
-</script>
-
+<script type="text/javascript" src="./jsindex.js"></script>
 </body>
 </html>
