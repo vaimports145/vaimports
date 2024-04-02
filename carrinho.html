@@ -12,136 +12,64 @@
 <meta property="og:url" content="https://vaimports145.github.io/vaimports/carrinho.html">
 <style>
 /*---------------------------------------------------Principal--------------------------------------------------*/
+	
 body {padding-top: 115px; background-color: #E5D3C0; margin: 0; display: flex; flex-direction: column; min-height: 100vh;}
-
 .fundo {background-color: #191919; position: fixed; width: 100%; top:0; text-align: center; z-index: 2;}
-
 .logo {max-width: 150px;}
-
 .cxdebusca {width: 100%; border-radius: 20px; height: 50px; font-weight: bold; background-color: white; margin-top: 15px;}
-
 .inputmenu {float: left; width: 80%; padding: 15px; border-radius: 20px; height: 50px; font-weight: bold; border: none; background-color:transparent; color: #000;}
 .inputmenu:focus {box-shadow: 0 0 0 0;}
-
 .lupa {float: right; width: 30px; margin: 10px;}
-
 .op {font-size: 15px; text-decoration:none; color: #ffffff; font-weight: bold;}
 .op:hover {color: grey;}
-
 .carrinho {width: 50px; margin-top:65px; text-align: left;}
-
 .quanticar {position: absolute; margin-top: 22px; margin-left: -4%; font-size: 15px; font-weight: bold;}
-
 select {background-color: transparent; border: none; color: #ffffff; font-size: 15px; font-weight: bold;}
 select:hover {color: grey;}
-
 .selected {color: grey;}
-
 option {font-size: 20px; color: black;}
-
 .menuicon {display: none;}
-
 .sidenav {display: none;}
-
 .propaganda {max-width: 200px; margin-right: -20px; margin-bottom: -1px;}
 
 /*---------------------------------------------------Carrinho--------------------------------------------------*/
-
-#mensagemCarrinhoVazio {margin-top: 30%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Define a altura da div como 100% da altura da tela */
-}
-    
+	
+#mensagemCarrinhoVazio {margin-top: 30%; text-align: center; display: flex; justify-content: center; align-items: center; height: 100vh; /* Define a altura da div como 100% da altura da tela */}
 .botaoconferir {background-color: #191919; border-radius: 20px; padding: 20px; color: white; margin-top: 300px}    
-
 #txcarrinho {margin-top: 50px; margin-left:5%}
-
-#divglobal {
-  margin-left: 5%; margin-right: 5%; margin-bottom: 100px
-}
-
-.divcarrinho {
-  width: 70%;
-  background-color: white;
-  border-radius: 10px; float: left;
-}
-
-.divcarrinho th, .divcarrinho td {
-  padding: 8px;
-}
-
+#divglobal {margin-left: 5%; margin-right: 5%; margin-bottom: 100px}
+.divcarrinho {width: 70%; background-color: white; border-radius: 10px; float: left;}
+.divcarrinho th, .divcarrinho td {padding: 8px;}
 .divcarrinho th {}
-
-.divcarrinho img {
-  width: 40%; max-width: 100px; /* Tamanho máximo da imagem */
-  height: auto;
-  vertical-align: top; 
-}
-
-.nome-preco {
-  display: inline-block; width: 50%; margin-left: 5px
-}
-
+.divcarrinho img {width: 40%; max-width: 100px; /* Tamanho máximo da imagem */ height: auto; vertical-align: top;}
+.nome-preco {display: inline-block; width: 50%; margin-left: 5px}
 .total-label {font-size: 14px}
-
 .inputtotal {width: 73%; border: 0; font-size: 14px}
-
 .quantity-wrapper {background-color: #dcdcdc; text-align: center; border-radius: 10px; width: 70%}
-
 .inputquantidade {width: 40%; text-align: center; font-size: 14px; background-color: transparent; border: 0}
 .inputquantidade:focus {outline: none;}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    appearance: none;
-    margin: 0;
-}
-
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; appearance: none; margin: 0;}
 .quantity-buttonmais {padding: 0 3px 3px 3px; background-color: transparent ; cursor: pointer; border: 0}
-
 .quantity-buttonmenos {padding: 0 5px 3px 5px; background-color: transparent; cursor: pointer; border: 0}
-
 .nomeInput {width: 100%; border: 0; font-size: 13px;}
 .nomeInput:focus {outline: none;}
-
 .preco-label {font-weight: bold;}
-
 .precoInput {width: 70%; font-weight: bold; color: #191919; border: 0; font-size: 14px}
 .precoInput:focus {outline: none;}
-
 .tdremover {border-left: 1px solid grey;}
-
 .removerProduto {color: white; padding: 8px; background-color: #191919; border-radius: 10px; font-size: 11px}
-
 .thquantidade {width: 20%;}
-
 .thtotal {width: 25%}
-
 .thproduto {width: 55%}
-
 .linhaproduto {border-top: 1px solid grey}
-
-.inforcarrinho {width: 25%; float: right; background-color: white; border-radius: 10px; padding: 10px;
-}
-
-.h4total {
-  margin-bottom: 10px;float: left;
-}
-
-#precoTotal {
-  width: 50%; float: right; border: 0; font-size: 15px; font-weight: bold
-}
-
+.inforcarrinho {width: 25%; float: right; background-color: white; border-radius: 10px; padding: 10px;}
+.h4total {margin-bottom: 10px;float: left;}
+#precoTotal {width: 50%; float: right; border: 0; font-size: 15px; font-weight: bold}
 #cliente {width: 100%; border-radius: 10px; padding: 5px}
-
 #enviar {width: 100%; background-color: #191919; margin-top: 20px; color: white; border-radius: 10px; padding: 10px; margin-bottom: 10px}
 
 /*---------------------------------------------------Footer--------------------------------------------------*/
-
+	
 .footer1 {width: 100%; height: 50px; background-image: linear-gradient(to bottom, #dcdcdc, #191919);}
 footer {background-color: #191919; color: white;}
 .logofooter {width: 15%; margin: 5%;}
@@ -149,7 +77,7 @@ footer {background-color: #191919; color: white;}
 .copy {text-align: center; margin-top: 50px; font-size: 12px;}
 
 /*---------------------------------------------------Celular--------------------------------------------------*/
-
+	
 @media only screen and (max-width: 700px) {
   body {padding-top: 80px; background-color: #dcdcdc}
   .logo {max-width: 60px; margin: 20px;}
@@ -193,18 +121,19 @@ footer {background-color: #191919; color: white;}
   .tabletotal {width: 100%}
   #precoTotal {text-align: right; border: 0; font-size: 15px; font-weight: bold; margin-top: -12px}
   .cliente {float: left}
+}
 </style>
 </head>
 <body>
 <header>
 <table class="fundo">
-  <thead>
+<thead>
   
-<!--_________________________________________Menu________________________________________________-->
+<!---------------Menu-------------->
 
 <td><div id="mySidenav" class="sidenav" id="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <div class="category" onclick="filterproducts('all')"><a href="index.html">Página Inicial</a></div>
+      <div class="category" onclick="filterproducts('all')"><a href="#">Página Inicial</a></div>
       <hr><div class="category"><a href="https://api.whatsapp.com/send?phone=5593991755419">WhatsApp</a></div>
       <hr><div class="category"><a href="https://www.instagram.com/va_imports__/">Intagram</a></div>
       <hr><div class="ml-3 text-white"><h5>Categorias:</h5></div>
@@ -213,74 +142,81 @@ footer {background-color: #191919; color: white;}
       <hr><div class="category" onclick="filterproducts('fones')" id="fones">Fones</div>
       <hr><div class="category" onclick="filterproducts('smartphones')" id="smartphones">Smartphones</div>
       <hr>
-      </div>
-      <span onclick="openNav()"><img class="menuicon" src="https://i.postimg.cc/1Rq9KB0N/menu.png" alt="menu"></span></td>
+</div>
+<span onclick="openNav()"><img class="menuicon" src="https://i.postimg.cc/1Rq9KB0N/menu.png" alt="menu"></span></td>
       
-<!--_________________________________________Opções________________________________________________-->      
+<!---------------Topo-------------->      
       
-    <td><a href="index.html"><img class="logo" src="https://i.postimg.cc/7hXhdRCS/Logo-5000-x-3000-px.png" alt="logo"></a></td>
-    <td><div class="cxdebusca">
-    <input class="form-control inputmenu" type="text" id="campopesquisa" placeholder="Buscar..." type="text">
-    <img class="lupa" src="https://i.postimg.cc/QxXJxRyD/Lupa.png" alt="lupa" onclick="buscar()">
-    </div>
-    <nav class="navbar opcoes">
-      <a class="op" href="https://api.whatsapp.com/send?phone=5593991755419">WhatsApp</a> 
-      <a class="op" href="https://www.instagram.com/va_imports__/">Intagram</a>
-      <select class="w-25" name="select" id="category" onchange="filterProducts()">
-        <option hidden value= 0 >Categorias</option>
-        <option value="tudo">Tudo</option>
-        <option value="sons">Sons</option>
-        <option value="eletronicos">Eletrônicos</option>
-        <option value="fones">Fones</option>
-        <option value="smartphones">Smartphones</option>
-      
-      </select></nav></td>           
-    <td><a href="#"><img class="carrinho" src="https://i.postimg.cc/zBNCgKv6/Carrinho-VA.png" alt="carrinho"></a></td>     
-    <td><h1 class="quanticar">0</h1></td>
+<td><img class="logo" src="https://i.postimg.cc/7hXhdRCS/Logo-5000-x-3000-px.png" alt="logo"></td>
+<td>
+	<div class="cxdebusca">
+		<input class="form-control inputmenu" type="text" id="campopesquisa" placeholder="Buscar..." type="text">
+		<img class="lupa" src="https://i.postimg.cc/QxXJxRyD/Lupa.png" alt="lupa" onclick="buscar()">
+	</div>
+	<nav class="navbar opcoes">
+		<a class="op" href="https://api.whatsapp.com/send?phone=5593991755419">WhatsApp</a> 
+		<a class="op" href="https://www.instagram.com/va_imports__/">Intagram</a>
+		<select class="w-25" name="select" id="category" onchange="filterProducts()">
+	            <option hidden value= 0 >Categorias</option>
+	            <option value="tudo">Tudo</option>
+	            <option value="sons">Sons</option>
+	            <option value="eletronicos">Eletrônicos</option>
+	            <option value="fones">Fones</option>
+	            <option value="smartphones">Smartphones</option>
+		</select>
+	</nav>
+</td>           
+<td><a href="#carrinhoContainer"><img class="carrinho" src="https://i.postimg.cc/zBNCgKv6/Carrinho-VA.png" alt="carrinho"></a></td>     
+<td><h1 class="quanticar">0</h1></td>
 
-<!--_________________________________________Propaganda________________________________________________-->	  
+<!---------------Propaganda-------------->   
 
-      <td class="propaganda"><h1 style="color: white">SELFIE <br> CELULARES</h1></td>
-    <!--<td><a href="https://api.whatsapp.com/send?phone=5593991991685"><img class="propaganda" src="https://i.postimg.cc/T36mL6xH/propagandatopo.png" alt="propaganda"></a></td>-->    
-  </thead>
+<td class="propaganda" style="padding: 15px"><!--<h1 style="color: white">SELFIE <br> CELULARES</h1>--></td>
+</thead>
 </table>
 </header>
+
+<!---------------Carrinho vazio-------------->
+	
 <div id="mensagemCarrinhoVazio" style="display: none;">
 	<h2>Seu carrinho está vazio</h2><br>
-    <a href="produtos.html"><span class="botaoconferir">Confira nossos produtos</span></a>
+    	<a href="produtos.html"><span class="botaoconferir">Confira nossos produtos</span></a>
 </div>
+	
+<!---------------Carrinho-------------->
+	
 <h3 id="txcarrinho">Meu Carrinho</h3>
 <div id="divglobal">
-<form action="https://api.sheetmonkey.io/form/uWEAGr6vo7kq8QBa6qsEsj" method="post">
-  <table class="divcarrinho">
-    <thead>
-      <tr class="ths">
-        <th class="thproduto">Produto</th>
-        <th class="thquantidade">Quantidade</th>
-        <th class="thtotal">Total</th>
-        <th class="thvazio">Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Os produtos serão adicionados dinamicamente aqui -->
-    </tbody>
-  </table>
+	<form action="https://api.sheetmonkey.io/form/uWEAGr6vo7kq8QBa6qsEsj" method="post">
+  	<table class="divcarrinho">
+    	<thead>
+	  <tr class="ths">
+	        <th class="thproduto">Produto</th>
+	        <th class="thquantidade">Quantidade</th>
+	        <th class="thtotal">Total</th>
+	        <th class="thvazio">Total</th>
+      	  </tr>
+    	</thead>
+    	<tbody>
+      	<!-- Os produtos serão adicionados dinamicamente aqui -->
+    	</tbody>
+  	</table>
 
-  <div class="inforcarrinho">
-  <table class="tabletotal">
-    <th><h5 class="h4total">Total</h5></th>
-    <th><input type="text" name="A pagar" id="precoTotal" readonly></th>
-  </table>
-    <label class="cliente" for="Cliente">Nome Completo:</label>
-    <input type="text" id="cliente" name="Cliente" required>
+  	<div class="inforcarrinho">
+  		<table class="tabletotal">
+    			<th><h5 class="h4total">Total</h5></th>
+    			<th><input type="text" name="A pagar" id="precoTotal" readonly></th>
+  		</table>
+    	<label class="cliente" for="Cliente">Nome Completo:</label>
+    	<input type="text" id="cliente" name="Cliente" required>
 
-  <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
-  <button type="submit" id="enviar" value="Submit">Enviar</button>
-  </div>
-</form>
+  	<input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
+  	<button type="submit" id="enviar" value="Submit">Enviar</button>
+ 	 </div>
+	</form>
 </div>
 
-<!--_____________________________________Footer____________________________________________________-->
+<!---------------Footer-------------->
 
 <footer>
 <div class="footer1"></div>
@@ -294,21 +230,45 @@ footer {background-color: #191919; color: white;}
 </div>
 </footer>
 
-
+<!---------------Javascript-------------->
+	
 <script>
-
-/////////////////////////////////////////// MENU CELULAR ////////////////////////////////////////////////////
+//__________Menu__________//
 
 function openNav() {
-  document.getElementById("mySidenav").style.width = "50%";
-  var imagens = document.getElementById('slides');
+ 	document.getElementById("mySidenav").style.width = "50%";
+ 	var imagens = document.getElementById('slides');
 }
 function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  var imagens = document.getElementById('slides');
-} 
+	document.getElementById("mySidenav").style.width = "0";
+ 	var imagens = document.getElementById('slides');
+}
 
-// Função para calcular o total
+//__________Buscar produtos__________//
+
+document.getElementById('campopesquisa').addEventListener('keyup', function(event) {
+	if (event.keyCode === 13) {
+		buscar();
+    }
+});
+    
+function buscar() {
+	var termoBusca = document.getElementById('campopesquisa').value.trim();
+	if (termoBusca !== '') {
+    	window.location.href = 'produtos.html?termo=' + encodeURIComponent(termoBusca);
+  	}
+}
+
+//__________Buscar categorias__________//
+
+function categorias() {
+    var elementoCategoria = event.target.closest('.tudojunto').querySelector('.nomecategoria');
+    var textoCategoria = elementoCategoria.innerText;
+    window.location.href = 'produtos.html?termo=' + encodeURIComponent(textoCategoria);
+}
+
+//_____Função para calcular o total_____//
+	
 function calcularTotal() {
     var total = 0;
     var linhasProdutos = document.querySelectorAll('.linhaproduto');
@@ -320,13 +280,15 @@ function calcularTotal() {
     return total.toFixed(2);
 }
 
-// Função para atualizar o campo de entrada do total
+//_____Função para atualizar o campo de entrada do total_____//
+	
 function atualizarCampoTotal() {
     var precoTotalInput = document.getElementById('precoTotal');
     precoTotalInput.value = "R$" + calcularTotal();
 }
 
-// Quando a página carregar
+//_____Quando a página carregar_____//
+	
 window.onload = function() {
     var carrinhoTableBody = document.querySelector('.divcarrinho tbody');
     carrinhoTableBody.innerHTML = ''; // Limpa a tabela antes de exibir os produtos
