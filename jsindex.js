@@ -1,3 +1,8 @@
+window.onload = function() {
+	var listaProdutos = JSON.parse(localStorage.getItem('listaProdutos')) || [];
+    document.querySelector('.quanticar').textContent = listaProdutos.length;
+}
+
 //_____Rolagem no celular_____//
 
 $(document).ready(function(){
