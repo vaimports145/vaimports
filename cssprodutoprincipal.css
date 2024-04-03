@@ -1,0 +1,141 @@
+/*---------------------------------------------------Principal--------------------------------------------------*/
+body {padding-top: 115px; background-color: #E5D3C0; margin: 0; display: flex; flex-direction: column; height: 100%;}
+
+.corpo {flex: 1;}
+
+.fundo {background-color: #191919; position: fixed; width: 100%; top:0; text-align: center; z-index: 2;}
+
+.logo {max-width: 150px;}
+
+.cxdebusca {width: 100%; border-radius: 20px; height: 50px; font-weight: bold; background-color: white; margin-top: 15px;}
+
+.inputmenu {float: left; width: 80%; padding: 15px; border-radius: 20px; height: 50px; font-weight: bold; border: none; background-color:transparent; color: #000;}
+.inputmenu:focus {box-shadow: 0 0 0 0;}
+
+.lupa {float: right; width: 30px; margin: 10px;}
+
+.op {font-size: 15px; text-decoration:none; color: #ffffff; font-weight: bold;}
+.op:hover {color: grey;}
+
+.carrinho {width: 50px; margin-top:65px; text-align: left;}
+
+.quanticar {position: absolute; margin-top: 22px; margin-left: -4%; font-size: 15px; font-weight: bold;}
+
+select {background-color: transparent; border: none; color: #ffffff; font-size: 15px; font-weight: bold;}
+select:hover {color: grey;}
+
+.selected {color: grey;}
+
+option {font-size: 20px; color: black;}
+
+.menuicon {display: none;}
+
+.sidenav {display: none;}
+
+.propaganda {max-width: 200px; margin-right: -20px; margin-bottom: -1px;}
+
+/*---------------------------------------------------Produto Principal--------------------------------------------------*/
+
+.imagensproduto-principal {margin-left: 5%;background-color: #ffffff;padding: 15px;box-shadow: 1px 2px 10px black;border-radius: 10px;width: calc(55% - 10px);margin-top: 50px;float: left; height: 100%; margin-bottom: 10px}
+
+.inforproduto-principal {margin-right: 5%;background-color: #ffffff;padding: 15px;box-shadow: 1px 2px 10px black;border-radius: 10px;width: 35%;margin-top: 50px;float: right;height: 500px; text-align: justify; margin-bottom: 50px;}
+
+#imagemproduto {width: calc(75% - 3px);max-width: 600px;float: right; border-radius: 10px}
+
+.miniaturas {float: left;width: calc(25% - 3px)}
+
+.miniatura {width: 60%;margin-bottom: 5%;border-radius: 10px}
+
+.vendidos {color: grey; margin: 0}
+
+.nomeproduto-principal {margin-bottom: 0}
+
+.estrela {color: gold; font-size: 24px; margin-top: 0}
+
+.linha {border: 1px solid grey}
+
+.promocaoproduto-principal {color: red; margin-bottom: 0}
+
+.cifrao {color: green}
+
+.quantidade {border: 1px solid black; border-radius: 10px; width: 100%}
+
+.inputquantidade {width: 100%; text-align: center; border: 0; float: center; font-size: 20px;}
+.inputquantidade:focus {outline: none}
+
+.menosquantidade {border: 0; font-weight: bold; float: left; font-size: 18px; border-radius: 10px; background-color: white; margin: 0}
+
+.maisquantidade {border: 0; float: right; font-weight: bold; font-size: 18px; border-radius: 10px; background-color: white; margin: 0}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
+
+input[type="number"] {-moz-appearance: textfield;}
+
+.compraragora {background-color: green; color: white; margin-top: 20px; border: 0; border-radius: 10px; width: 100%; height: 50px; text-align: center; font-size: 15px}
+
+.txcomprar {margin-left: 25%; margin-top: 13px}
+
+.logowhats {width: 40px; margin-right: -10px}
+
+.addcarrinho {background-color: #191919; color: white; margin-top: 20px; border: 0; border-radius: 10px; width: 100%; height: 50px}
+
+.hrdescricao {display: none}
+
+.descricao {margin-left: 5%;background-color: #ffffff;padding: 15px;box-shadow: 1px 2px 10px black;border-radius: 10px;width: calc(55% - 10px); float: left; height: 100%; margin-bottom: 50px}
+
+.limite {float: left; width: 90%; height: 100px; margin-top: -100px}
+
+/*---------------------------------------------------Produtos--------------------------------------------------*/
+
+.ofertas {width: 90%; margin-left: 5%; margin-bottom: 20px;}
+
+.t1 {float: left; border-bottom: 5px solid #191919;}
+.t2 {float: right;}
+
+#produtos {display: flex; flex-wrap: nowrap; margin-left: 5%; margin-right: 5%; padding-bottom: 20px; margin-bottom: 50px}
+#produtos a {text-decoration: none; color: black;}
+.produto:hover {background-color: #dcdcdc;}
+.produto {flex: 0 0 calc(20% - 20px); margin: 10px; background-color: #ffffff; padding: 5px; box-shadow: 1px 2px 10px black; border-radius: 10px; width: 100%;}
+.imgproduto {width: 100%;}
+.nomeproduto {margin-bottom: 0px;}
+.precoproduto {margin-top: 10px; color: #191919;}
+
+/*---------------------------------------------------Footer--------------------------------------------------*/
+
+footer {position: relative; bottom: 0; flex-shrink: 0;left: 0;}
+.footer1 {width: 100%; height: 50px; background-image: linear-gradient(to bottom, #dcdcdc, #191919);}
+footer {background-color: #191919; color: white;}
+.logofooter {width: 15%; margin: 5%;}
+.pfooter {margin-left: 5%;}
+.copy {text-align: center; margin-top: 50px; font-size: 12px;}
+
+/*---------------------------------------------------Celular--------------------------------------------------*/
+
+@media only screen and (max-width: 700px) {
+  body {padding-top: 80px; background-color: #dcdcdc}
+  .logo {max-width: 60px; margin: 20px;}
+  .cxdebusca {height: 40px;}
+  .inputmenu {width: 60%; height: 40px;}
+  .lupa {width: 20px;}
+  .op {display: none;}
+  .carrinho {width: 40px; margin-top: 1px; margin: 20px;}
+  .quanticar {margin-top: -11px; margin-left: -9%;}
+  select {display: none;}
+  .category {margin-left: 15px; color: white;}
+  .category:hover {color: grey}
+  .selected {color: grey;}
+  option {font-size: 15px; color: black;}
+  .menuicon {display: block; width: 40px; margin-left: 15px;}
+  .sidenav {display: block; height: 100%; width: 0; position: fixed; z-index: 1; top: 0; left: 0; background-color: #191919; overflow-x: hidden; padding-top: 40px; transition: 0.5s; border-right: 1px solid white; text-align: left;}
+  .sidenav a {text-decoration: none; font-size: 15px; color: white; display: block; transition: 0.2s;}
+  .sidenav a:hover {color: grey;}
+  .sidenav .closebtn {position: absolute; top: 0; right: 10px; font-size: 36px;}
+  .propaganda {display: none;}
+  #produtos {overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; margin-right: 0; margin-left: 0; padding-left: 5%;}
+  .imagensproduto-principal {width: 100%; box-shadow: 0 0 0; margin: 0; border-radius: 0; padding: 30px}
+  #imagemproduto {width: 100%; float: left;}
+  .miniaturas {display: flex; flex-wrap: nowrap; margin-top: 15px;}
+  .miniatura {margin-right: 10px}
+  .inforproduto-principal {width: 100%; height: 100%; margin-top: 5px; box-shadow: 0 0 0; margin: 0; border-radius: 0; padding: 30px}
+  .hrdescricao {float: left; width: 94%; display: block; border: 10px solid grey; margin-bottom: 40px}
+  .descricao {width: 100%; height: 100%; box-shadow: 0 0 0; text-align: center; margin: 0; border-radius: 0; margin-top: 10px; margin-bottom: 50px}
