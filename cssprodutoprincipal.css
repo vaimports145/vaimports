@@ -73,8 +73,7 @@ input[type="number"] {-moz-appearance: textfield;}
 
 .compraragora {background-color: green; color: white; margin-top: 20px; border: 0; border-radius: 10px; width: 100%; height: 50px; text-align: center; font-size: 15px}
 
-.txcomprar {margin-left: 25%; margin-top: 13px}
-
+.txcomprar a {text-decoration: none; color: white; margin-left: 25%; margin-top: 13px;}
 .logowhats {width: 40px; margin-right: -10px}
 
 .addcarrinho {background-color: #191919; color: white; margin-top: 20px; border: 0; border-radius: 10px; width: 100%; height: 50px}
