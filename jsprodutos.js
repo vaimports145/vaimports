@@ -59,19 +59,29 @@ function getTermoBusca() {
 
 //Função para exibir os resultados da busca
 function exibirResultados() {
-  var termoBusca = getTermoBusca();
-  if (termoBusca) {
-  document.getElementById('produtopesquisado').textContent = 'Resultados para: ' + decodeURIComponent(termoBusca);
-    // Filtrar os produtos com base no termo de busca
-    var produtos = document.querySelectorAll('.produto');
-    produtos.forEach(function(produto) {
-      var nomeProduto = produto.getAttribute('data-name').toLowerCase();
-      if (nomeProduto.includes(termoBusca.toLowerCase())) {
-        produto.style.display = 'block';
-      }else {produto.style.display ='none';
-      }
-    });
-  }
+    var termoBusca = getTermoBusca();
+    if (termoBusca) {
+        document.getElementById('produtopesquisado').textContent = 'Resultados para: ' + decodeURIComponent(termoBusca);
+        // Filtrar os produtos com base no termo de busca
+        var produtos = document.querySelectorAll('.produto');
+        var resultadosEncontrados = false; // Variável para rastrear se algum resultado foi encontrado
+        produtos.forEach(function(produto) {
+            var nomeProduto = produto.getAttribute('data-name').toLowerCase();
+            if (nomeProduto.includes(termoBusca.toLowerCase())) {
+                produto.style.display = 'block';
+                resultadosEncontrados = true; // Definir como verdadeiro se algum resultado for encontrado
+            } else {
+                produto.style.display = 'none';
+            }
+        });
+
+        // Exibir mensagem de nenhum resultado encontrado, se aplicável
+        if (!resultadosEncontrados) {
+            document.getElementById('nenhumResultado').style.display = 'block';
+        } else {
+            document.getElementById('nenhumResultado').style.display = 'none';
+        }
+    }
 }
 
 //seta voltar
