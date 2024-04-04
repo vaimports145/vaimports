@@ -29,6 +29,36 @@ function buscar() {
   	}
 }
 
+// Verifica se o termo na URL corresponde a algum produto
+function verificarTermoNaUrl() {
+    // Obtém o termo da URL
+    var url = new URL(window.location.href);
+    var termo = url.searchParams.get("termo");
+
+    // Obtém todos os elementos com a classe 'produto'
+    var produtos = document.getElementsByClassName("produto");
+
+    // Define uma variável para verificar se há correspondência
+    var correspondencia = false;
+
+    // Verifica se o termo corresponde a algum produto
+    for (var i = 0; i < produtos.length; i++) {
+        var nomeProduto = produtos[i].getAttribute("data-name").toLowerCase();
+        if (nomeProduto.includes(termo.toLowerCase())) {
+            correspondencia = true;
+            break;
+        }
+    }
+
+    // Se não houver correspondência, exibe um aviso
+    if (!correspondencia) {
+        alert("Nenhum produto corresponde ao termo de busca.");
+    }
+}
+
+// Chama a função ao carregar a página
+window.onload = verificarTermoNaUrl;
+
 //__________Buscar categorias__________//
 
 function categorias() {
