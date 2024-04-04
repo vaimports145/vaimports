@@ -29,6 +29,26 @@ function buscar() {
   	}
 }
 
+// Verificar se há produtos visíveis
+function verificarProdutosVisiveis() {
+    var produtos = document.querySelectorAll('.txeprodutos .produto');
+    if (produtos.length === 0) {
+        // Se não houver nenhum produto, exiba um aviso
+        var aviso = document.createElement('p');
+        aviso.textContent = 'Nenhum produto encontrado.';
+        document.querySelector('.txeprodutos').appendChild(aviso);
+    } else {
+        // Se houver produtos, remova qualquer aviso existente
+        var avisoExistente = document.querySelector('.txeprodutos p');
+        if (avisoExistente) {
+            avisoExistente.parentNode.removeChild(avisoExistente);
+        }
+    }
+}
+
+// Chame a função para verificar produtos visíveis ao carregar a página
+document.addEventListener('DOMContentLoaded', verificarProdutosVisiveis);
+
 //__________Buscar categorias__________//
 
 function categorias() {
